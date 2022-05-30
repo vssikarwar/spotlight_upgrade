@@ -1,0 +1,75 @@
+/* ----------------------------------
+
+Name: alert.alert.css
+Version: 1.0
+Writer: Gyandeep Sharma
+
+-------------------------------------
+
+/*******************************************GYaN*******************************************/
+.alert,.message {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	z-index: 1051;
+	padding: 0 5px 0;
+	width: 300px;
+}
+.alert .success, .alert .danger, .alert .warning,message .success, .message .danger, .message .warning {
+	display: flex;
+	align-items: center;
+	color: #fff;
+	font-size: 13px;
+	padding: 4px 35px 4px 8px;
+	border-radius: 2px;
+	position: relative;
+	margin-bottom: 5px;
+	min-height: 50px;
+	transition: all ease-in-out 0.4s;
+}
+
+.alert .success,.message .success {
+    background: #007E33;
+    border-left: 2px solid #00C851;
+}
+.alert .danger,.message .danger {
+    background: #CC0000;
+    border-left: 2px solid #ff4444;
+}
+
+.alert .warning,.message .warning {
+    background: #FF8800;
+    border-left: 2px solid #ffbb33;
+}
+.alert p ,.message p {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+
+
+@media (min-width:0px) and (max-width:768px) {
+    .alert {width: 90%;}
+    .alert .success, .alert .danger, .alert .warning {
+        height: 40px;
+        margin-bottom: 2px;
+    }
+}
+
+.message p:after,.message-position-default p:after {
+    right: 7px;
+    top: 10px;
+    content: "×";
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+}
+
+@media (min-width:0px) and (max-width:481px) {
+    .alert .success, .alert .danger, .alert .warning {
+        font-size: 11px;
+        min-height: 40px;	
+    }
+    .alert p { font-size: 12px;}  
+}
+/*******************************************GYaN*******************************************/
