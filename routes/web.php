@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
     /*
@@ -27,7 +28,27 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/dashboard', 'LoginController@dashboard');
 
 
-    Route::get('/test', 'TestController@index')->name('test.index');
+    /**
+         * Posts Routes
+         */
+        Route::group(['prefix' => 'locations'], function() {
+
+    Route::get('/create', 'TestController@create')->name('locations.create');
+    Route::post('/create', 'TestController@create')->name('locations.create');
+    Route::get('/{location}/edit', 'TestController@edit')->name('locations.edit');
+    Route::get('/update', 'TestController@updateData')->name('locations.update');
+
+
+    Route::get('/', 'TestController@index');
+
+        });
+
+
+
+    Route::get('/test', 'TestController@addData')->name('test.index');
+    Route::post('/test', 'TestController@addData')->name('test.index');
+
+
 
 
     Route::group(['middleware' => ['guest']], function() {

@@ -18,7 +18,7 @@
         <script src="{{ URL::asset('js/jquery-ui.min.js') }}"></script>
         <script src="{{ URL::asset('js/bootstrap.bundle.min.js') }}"></script> 
         <script>
-            var urlForJs = "https://testing.myspotlight.co/";
+            var urlForJs = "{{url}}";
             var pageURL = "supportDashboard";
             var activeController = "Users";
             var activeMenu = "";
