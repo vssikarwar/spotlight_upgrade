@@ -110,12 +110,12 @@ class TestController extends Controller
         ]); 
     }
 
-    public function updateData()
+    public function update(Request $request)
     {
         
     }
 
-    public function deleteData()
+    public function destroy()
     {
 
     }

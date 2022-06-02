@@ -36,7 +36,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/create', 'TestController@create')->name('locations.create');
     Route::post('/create', 'TestController@create')->name('locations.create');
     Route::get('/{location}/edit', 'TestController@edit')->name('locations.edit');
-    Route::get('/update', 'TestController@updateData')->name('locations.update');
+    Route::get('/{location}/update', 'TestController@update')->name('locations.update');
+    Route::get('/{location}/delete', 'TestController@destroy')->name('locations.update');
+
 
 
     Route::get('/', 'TestController@index');
