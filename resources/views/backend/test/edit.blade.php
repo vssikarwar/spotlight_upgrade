@@ -17,7 +17,7 @@
                     <input value="{{ $location->name}}" 
                         type="text" 
                         class="form-control" 
-                        name="title" 
+                        name="name" 
                         placeholder="Business Name" >
 
                     @if ($errors->has('name'))
@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="description" class="form-label">Address</label>
+                    <label for="address" class="form-label">Address</label>
                     <input value="{{ $location->address }}" 
                         type="text" 
                         class="form-control" 

@@ -52,13 +52,7 @@ class TestController extends Controller
         
         $location = new Location();
 
-        $fields = ["name","website_url","region_code","state_id",
-                    "city_id","address","postal_code","latitude","longitude","storeCode"];
-
-                    foreach($fields as $field)
-                    {
-                        $location->$field = $request->$field; 
-                    }
+        
 
         // $location->name        = $request->name;
 
@@ -98,9 +92,9 @@ class TestController extends Controller
     }
 
 
-    public function show()
+    public function show($id)
     {
-
+        return Location::find($id);
     }
 
     public function edit(Location $location)
@@ -112,7 +106,20 @@ class TestController extends Controller
 
     public function update(Request $request)
     {
-        
+        print_r($request->all());die;
+
+        $location = Location::find($request->id);
+
+        $fields = ["name","address","virtual_number"];
+
+                    foreach($fields as $field)
+                    {
+                        $location->$field = $request->$field; 
+                    }
+                    $location->save();
+                    return redirect('locations');
+
+
     }
 
     public function destroy()

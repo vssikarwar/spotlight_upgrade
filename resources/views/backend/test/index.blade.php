@@ -26,7 +26,7 @@
                 <?php $id = $location->id; ?>
                 <td>{{ $location->name }}</td>
                 <td>
-                    <a class="btn btn-info btn-sm" href="">Show</a>
+                    <a class="btn btn-info btn-sm" href="{{ route('locations.show', $location->id) }}">Show</a>
                 </td>
                 <td>
                     <a class="btn btn-primary btn-sm" href="{{ route('locations.edit', $location->id) }}">Edit</a>
