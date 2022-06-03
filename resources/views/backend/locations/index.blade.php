@@ -1,6 +1,6 @@
-@extends('backend.layouts.app-master')
+@extends('backend.layouts.main')
 
-@section('content')
+@section('main-content')
     <br><br><br>
 
     <div class="bg-light p-4 rounded">
@@ -10,7 +10,7 @@
             <a href="{{ route('locations.create') }}" class="btn btn-primary btn-sm float-right">Add location</a>
         </div>
         <br>
-        <div class="mt-2">
+        <div class="mt-2"> 
             @include('backend.layouts.partials.messages')
         </div>
 

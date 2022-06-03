@@ -67,9 +67,4 @@ class LoginController extends Controller
         return redirect('dashboard');
     }
 
-    public function dashboard() 
-    {
-        return view('backend.home.index');
-    }
-
 }

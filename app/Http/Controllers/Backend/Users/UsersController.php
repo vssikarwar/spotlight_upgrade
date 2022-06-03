@@ -23,12 +23,7 @@ class UsersController extends Controller
         return view('backend.users.index', compact('users'));
     }
 
-    public function list()
-    {
-        $users = User::latest()->paginate(10);
-
-        return view('backend.users.index', compact('users'));
-    }
+    
 
     /**
      * Show form for creating user

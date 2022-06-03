@@ -25,8 +25,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Dashboard Routes
      */
-    Route::get('/dashboard', 'LoginController@dashboard');
-    // Route::get('/dashboard', 'DashboardController@index');
+    // Route::get('/dashboard', 'LoginController@dashboard');
+    Route::get('/dashboard', 'DashboardController@index');
+
+    Route::group(['prefix' => 'publishers'], function() {
+
+        Route::get('/{publisher}/edit', 'DashboardController@edit')->name('publishers.edit');
+        Route::get('/', 'DashboardController@publishers')->name('dashboard.publishers');
+
+    });
 
 
 
