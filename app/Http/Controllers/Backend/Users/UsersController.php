@@ -27,7 +27,7 @@ class UsersController extends Controller
     {
         $users = User::latest()->paginate(10);
 
-        return view('backend.users.list', compact('users'));
+        return view('backend.users.index', compact('users'));
     }
 
     /**

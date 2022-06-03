@@ -26,6 +26,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Dashboard Routes
      */
     Route::get('/dashboard', 'LoginController@dashboard');
+    // Route::get('/dashboard', 'DashboardController@index');
+
 
 
     /**
@@ -84,7 +86,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::group(['namespace' => 'Users'], function()
         {
             Route::group(['prefix' => 'users'], function() {
-                Route::get('/listOfCustomers', 'UsersController@list')->name('users.index');
+                Route::get('/listOfCustomers', 'UsersController@index')->name('users.index');
                 Route::get('/', 'UsersController@index')->name('users.index');
 
 
