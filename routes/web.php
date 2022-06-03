@@ -33,23 +33,24 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::group(['prefix' => 'locations'], function() {
 
-    Route::get('/create', 'TestController@create')->name('locations.create');
-    Route::post('/create', 'TestController@create')->name('locations.create');
-    Route::get('/{location}/edit', 'TestController@edit')->name('locations.edit');
-    Route::get('/{location}/show', 'TestController@show')->name('locations.show');
-    Route::patch('/{location}/update', 'TestController@update')->name('locations.update');
-    Route::post('/{location}/delete', 'TestController@destroy')->name('locations.delete');
+    Route::get('/create', 'LocationController@create')->name('locations.create');
+    Route::post('/create', 'LocationController@create')->name('locations.create');
+    Route::get('/{location}/edit', 'LocationController@edit')->name('locations.edit');
+    Route::get('/{location}/show', 'LocationController@show')->name('locations.show');
+    Route::patch('/{location}/update', 'LocationController@update')->name('locations.update');
+    Route::post('/{location}/delete', 'LocationController@destroy')->name('locations.delete');
 
+    Route::get('/{location}/add', 'LocationController@addData');
+    Route::post('/{location}/add', 'LocationController@addData');
 
-
-    Route::get('/', 'TestController@index');
+    Route::get('/', 'LocationController@index')->name('location.index');
 
         });
 
 
 
-    Route::get('/test', 'TestController@addData')->name('test.index');
-    Route::post('/test', 'TestController@addData')->name('test.index');
+    Route::get('/test', 'LocationController@addData');
+    Route::post('/test', 'LocationController@addData');
 
 
 

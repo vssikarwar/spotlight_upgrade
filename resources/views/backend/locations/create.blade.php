@@ -11,7 +11,7 @@
 <body>
 
     
-    <form method="post" action="{{ route('test.index') }}">
+    <form method="post" action="{{ route('location.index') }}">
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
