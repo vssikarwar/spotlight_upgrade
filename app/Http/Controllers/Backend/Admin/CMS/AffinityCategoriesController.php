@@ -10,7 +10,6 @@ class AffinityCategoriesController extends Controller
 {
     public function index()
     {
-        $affinityCategories = AffinityCategories::latest()->paginate(20);
-        return view('backend.dashboards.admin.affinityCategories.index', compact('affinityCategories'));
+        
     }
 }

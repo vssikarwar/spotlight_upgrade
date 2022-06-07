@@ -1,56 +1,6 @@
+@extends('backend.dashboards.admin.layouts2.main')
 
-<!DOCTYPE html>
-<html>
-    <head>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>
-            SpotLight        </title>
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <link rel="stylesheet" href="/admin_l_t_e/bootstrap/css/bootstrap.css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
-        <link href="/favicon.ico" type="image/x-icon" rel="icon"/>
-        <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"/>        
-        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-        
-        <script language="javascript">
-            var urlForJs = "https://testing.myspotlight.co/";
-            var pageURL = "publishers/publisher-dashboard/1";
-            var activeMenu = "";
-            var activeMenu2 = "";
-        </script>
-
-        <link rel="stylesheet" href="/admin_l_t_e/css/select2.min.css"/>
-        <link rel="stylesheet" href="/admin_l_t_e/css/bootstrap-tokenfield.css"/>
-        <link rel="stylesheet" href="/usermgmt/css/umstyle.css?q=60820317"/>
-        <link rel="stylesheet" href="/plugins/chosen/chosen.min.css?q=60820317"/>
-        <link rel="stylesheet" href="/frontend/css/sweetalert.css"/>
-        <link rel="stylesheet" href="/admin_l_t_e/plugins/colorpicker/bootstrap-colorpicker.css"/>
-        <link rel="stylesheet" href="/admin_l_t_e/css/AdminLTE.min.css?q=60820317"/>
-        <link rel="stylesheet" href="/admin_l_t_e/css/skins/skin-blue.css"/> 
-        
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-        <script src="/usermgmt/js/umscript.js?q=60820317"></script>
-        <script src="/usermgmt/js/ajaxValidation.js?q=60820317"></script>
-        <script src="/plugins/chosen/chosen.jquery.min.js?q=60820317"></script>
-        <script src="/admin_l_t_e/plugins/colorpicker/bootstrap-colorpicker.js"></script>
-        <script src="/frontend/js/sweetalert.js"></script>        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.js"></script>
-        <style>
-            form label.error, span.help-inline{
-                color: #f00;
-                font-weight: 400;
-                border-width: 0px;
-                font-size: 12px;
-            }
-
-        </style>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        
-    </head>
+@section('main-content') 
 
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -685,7 +635,7 @@ Hello Admin Spotlight<br/><br/>Your last login time is 03-Jun-2022 01:13 PM<br/>
                 <!-- /.form-group -->
             </form>
         </div>
-        <!-- /.tab-pane -->
+        <!-- /.tab-pane --> 
     </div>
 </aside>
             <div class="control-sidebar-bg"></div>
