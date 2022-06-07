@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}"/>
         <link rel="stylesheet" href="{{ asset('css/datetimepicker.css') }}"/>
         <style>.error .help-inline{color: red;}</style>
-        <script src="{{ URL::asset('js/jquery-2.2.4.min.js') }}"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script src="{{ URL::asset('js/umscript.js?q=60820317') }}"></script>
         <script src="{{ URL::asset('js/ajaxValidation.js?q=60820317') }}"></script>
         <script src="{{ URL::asset('js/chosen.jquery.min.js?q=60820317') }}"></script>

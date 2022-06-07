@@ -1,12 +1,11 @@
-@extends('backend.dashboards.admin.layouts.main')
+@extends('backend.dashboards.admin.layouts2.main')
 
 @section('main-content') 
-
 
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
             <header class="main-header">
-                <a href="/dashboard" class="logo">
+                <a href="/publishers/publisher-dashboard/1" class="logo">
                     <span class="logo-mini"><b>S</b>PT</span>
                     <span class="logo-lg"><b>Spot</b>Light</span>
                 </a>
@@ -36,7 +35,7 @@
               <li><!-- start message -->
                 <a href="#">
                   <div class="pull-left">
-                    <img src="/admin_l_t_e/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>                  </div>
+                    <img src="{{ asset('img/user2-160x160.jpg')}}" class="img-circle" alt="User Image"/>                  </div>
                   <h4>
                     Support Team
                     <small><i class="fa fa-clock-o"></i> 5 mins</small>
@@ -48,7 +47,7 @@
               <li>
                 <a href="#">
                   <div class="pull-left">
-                    <img src="/admin_l_t_e/img/user3-128x128.jpg" class="img-circle" alt="User Image"/>                  </div>
+                    <img src="{{ asset('img/user3-128x128.jpg')}}" class="img-circle" alt="User Image"/>                  </div>
                   <h4>
                     AdminLTE Design Team
                     <small><i class="fa fa-clock-o"></i> 2 hours</small>
@@ -59,7 +58,7 @@
               <li>
                 <a href="#">
                   <div class="pull-left">
-                    <img src="/admin_l_t_e/img/user4-128x128.jpg" class="img-circle" alt="User Image"/>                  </div>
+                    <img src="{{ asset('img/user4-128x128.jpg')}}" class="img-circle" alt="User Image"/>                  </div>
                   <h4>
                     Developers
                     <small><i class="fa fa-clock-o"></i> Today</small>
@@ -70,7 +69,7 @@
               <li>
                 <a href="#">
                   <div class="pull-left">
-                    <img src="/admin_l_t_e/img/user3-128x128.jpg" class="img-circle" alt="User Image"/>                  </div>
+                    <img src="{{ asset('img/user3-128x128.jpg')}}" class="img-circle" alt="User Image"/>                  </div>
                   <h4>
                     Sales Department
                     <small><i class="fa fa-clock-o"></i> Yesterday</small>
@@ -81,7 +80,7 @@
               <li>
                 <a href="#">
                   <div class="pull-left">
-                    <img src="/admin_l_t_e/img/user4-128x128.jpg" class="img-circle" alt="User Image"/>                  </div>
+                    <img src="{{ asset('img/user4-128x128.jpg')}}" class="img-circle" alt="User Image"/>                  </div>
                   <h4>
                     Reviewers
                     <small><i class="fa fa-clock-o"></i> 2 days</small>
@@ -91,7 +90,6 @@
               </li>
             </ul>
           </li>
-
           <li class="footer"><a href="#">See All Messages</a></li>
         </ul>
       </li>
@@ -223,7 +221,7 @@
             
             <img src="{{ asset('img/user-default.png')}}" class="rounded-circle user-image" alt="User Image" height="37" width="37"/>
             <p>
-              Admin Spotlight              <small>Your last login time is 03-Jun-2022 10:44 AM<br/><br/>    </small>
+              Admin Spotlight              <small>Your last login time is 03-Jun-2022 01:13 PM<br/><br/>    </small>
             </p>
           </li>
           <!-- Menu Body -->
@@ -267,7 +265,7 @@
 function getClient(id)
     {
         if (id != '') {
-            var urllink = '/publishers';
+            var urllink = '/affinity-categories';
 			alert(urllink);
             urllink = urllink + '?'+'a_id=' + id;
             if (confirm("Are you sure! you want to clientID?")) {
@@ -282,75 +280,227 @@ function getClient(id)
     }
 </script>
             </header>
-                        <div class="content-wrapper" style="margin-left:0px;">
-                                                <section class="content-header">
-    <div class="container-1100" style="margin-bottom:20px;">
-    <div class="row">
-        <div class="col-sm-9"></div>
-        <div class="col-sm-3 text-right">
-             <a href="/publishers/add" class="btn btn-primary">+ New Publisher</a>        </div>
+                <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+    <div class="pull-left image">
+        
+        <img src="{{ asset('img/user-default.png')}}" class="rounded-circle" alt="User Image" height="37" width="37"/>
     </div>
-    </div>
-   
-</section>   
-<div class="container-1100"> 
-<div class="publishers index large-9 medium-8 columns content box">
-    
-    <h3>Publishers</h3>
-    <div class="table-responsive">
-        <table cellpadding="0" cellspacing="0" id="example1" class="table table-bordered table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col"><a href="/publishers?direction=asc&amp;sort=id">Id</a></th>
-                    <th scope="col"><a href="/publishers?direction=asc&amp;sort=name">Name</a></th>
-                    <th scope="col"><a href="/publishers?direction=asc&amp;sort=created">Created</a></th>
-                    <th scope="col"><a href="/publishers?direction=asc&amp;sort=modified">Modified</a></th>
-                    <th scope="col" class="actions">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
- 
-            @foreach ($publishers as $key => $publisher)
-            <tr>
-                <td>{{$publisher->id}}</td>
-                <?php $id = $publisher->id; ?>
-                <td>{{$publisher->name}}</td>
-                <td>{{$publisher->created}}</td>
-                <td>{{$publisher->modified}}</td>
-                <td class="actions">
-                <a href="/publishers/edit/1" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a> 
-                <a href="/publishers/publisher-dashboard/1" class="btn btn-success btn-xs"><i class="fa fa-navicon"></i></a>                            
-                           
-                </td>
-
-                @endforeach
-
-                            </tbody>
-        </table>
-    </div>
-
-    <div class="paginator">
-        <ul class="pagination">
-                        <li class="prev disabled"><a href="" onclick="return false;">&lt; previous</a></li>                        <li class="next disabled"><a href="" onclick="return false;">next &gt;</a></li>                    </ul>
-        <p>Page 1 of 1, showing 1 record(s) out of 1 total</p>
+    <div class="pull-left info">
+        <p>Admin</p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
     </div>
 </div>
-</div>            </div>
+
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+    <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search...">
+        <span class="input-group-btn">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+</form>
+        <!-- /.search form -->
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-book"></i>
+                <span>CMS</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/cms-categories" class="">Cms Categories</a></li>                <li><a href="/cms-pages" class="">Cms Pages</a></li>                <li><a href="/affinity-categories" class="">Affinity categories</a></li><li><a href="/product-categories" class="">Product categories</a></li><li><a href="/countries" class="">Countries</a></li><li><a href="/states" class="">States</a></li><li><a href="/cities" class="">Cities</a></li><li><a href="/languages" class="">Languages</a></li><li><a href="/country-language-mapping" class="">Languages Country Mapping</a></li><li><a href="/time-zones" class="">Timezones</a></li><li><a href="/currencies" class="">Currencies</a></li><li><a href="/mobile-app-categories" class="">Mobile App Categories</a></li><li><a href="/topics" class="">Topics</a></li><li><a href="/landingpage-themes" class="">Themes</a></li><li><a href="/call-to-action-logs" class="">Call To Action Logs</a></li><li><a href="/lms-api-data" class="">LMS API Data</a></li><li><a href="/customer-pincodes" class="">Customer Pincodes</a></li>            </ul>
+        </li>
+        <li class="treeview">
+            <a href="{{url('/lead-attributes')}}">
+                <i class="fa fa-sitemap"></i>
+                <span>Lead Attributes</span>
+            </a>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-exclamation"></i>
+                <span>Alerts</span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/exponential-types" class="">Types</a></li>
+                <li><a href="/exponential-tiers" class="">Tiers</a></li>
+            </ul>
+        </li>
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-sitemap"></i>
+                <span>Ads</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/campaign-types" class="">Campaign Types</a></li><li><a href="/search-networks" class="">Search Networks</a></li><li><a href="/delivery-methods" class="">Delivery Method</a></li><li><a href="/bidding-strategies" class="">Bidding Strategy</a></li><li><a href="/ad-group-types" class="">Ad Group Types</a></li><li><a href="/meta-datas" class="">Metadata Types</a></li><li><a href="/promotion-occasions" class="">Promotion Occasions</a></li>            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-gear"></i>
+                <span>Admin Settings</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/user_settings" class="">All Settings</a></li><li><a href="/user_settings/cakelog" class="">Cake Logs</a></li><li><a href="/deleteCache" class="">Delete Cache</a></li>            </ul>
+        </li>
+        <li class="treeview">
+            <a href="https://testing.myspotlight.co/service-providers">
+                <i class="fa fa-gear"></i>
+                <span>Service Provider</span>
+            </a>
+        </li>
+                <li class="treeview">
+            <a href="https://testing.myspotlight.co/models">
+                <i class="fa fa-gear"></i>
+                <span>Models</span>
+            </a>
+        </li>
+                <li class="treeview">
+            <a href="#">
+                <i class="fa fa-user"></i>
+                <span>Users</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/users" class="">All Users</a></li><li><a href="/users?user_group_id=1" class="">Admin</a></li><li><a href="/users?user_group_id=6" class="">Api User</a></li><li><a href="/users?user_group_id=2" class="">Brand User</a></li><li><a href="/users?user_group_id=5" class="">Dealer User</a></li><li><a href="/users?user_group_id=3" class="">Dealers</a></li><li><a href="/users?user_group_id=9" class="">Report User</a></li><li><a href="/users?user_group_id=8" class="">Reports</a></li><li><a href="/users?user_group_id=4" class="">Support</a></li>            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-group"></i>
+                <span>Group Permissions</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/permissionGroupMatrix" class="">Group Permissions</a></li><li><a href="/user_group_permissions/permissionSubGroupMatrix" class="">Subgroup Permissions</a></li>            </ul>
+        </li>
+        <li class="treeview"> 
+            <a href="{{url('/email-templates')}}">
+                <i class="fa fa-laptop"></i>
+                <span>Email Templates</span>
+            </a> 
+        </li>
+    </ul>
+
+    </section>
+    <!-- /.sidebar -->
+</aside>
+                <div class="content-wrapper">
+                    <section class="content-header">
+                        <h1></h1>
+                        <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Publishers</li>
+    
+</ol>
+<!--<ol class="breadcrumb"
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+</ol>-->                    </section>
+                    
+
+<section class="content-header">
+    <a href="/affinity-categories/add" class="btn btn-primary">New Affinity Category</a>    <a href="/affinity-categories/import" class="btn btn-primary">Import Affinity Category</a>    <a href="/affinity-categories/export" class="btn btn-primary">Export Affinity Category</a>    <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Publishers</li>
+    
+</ol>
+<!--<ol class="breadcrumb"
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+</ol>--></section>
+
+<div class="affinityCategories index large-9 medium-8 columns content box">
+    <h3>Affinity Categories</h3>
+    <div class="table-responsive">
+        <table cellpadding="0" cellspacing="0" id="example1" class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=id">Id</a></th>
+                <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=parent_id">Parent</a></th>
+                <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=googleid">Googleid</a></th>
+                <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=name">Name</a></th>
+                <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=alias">Alias</a></th>
+                <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=status">Status</a></th>
+                <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=created">Created</a></th>
+                <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=modified">Modified</a></th>
+                <th scope="col" class="actions">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach ($affinityCategories as $key => $affinityCategory)
+                        <tr>
+                <td>{{ $affinityCategory->id }}</td>
+                <?php $id = $affinityCategory->id; ?>
+                <td><a href="/affinity-categories/view/18">Local News Junkies</a></td>
+                <td>{{ $affinityCategory->googleid }}</td>
+                <td>{{ $affinityCategory->name }}</td>
+                <td>{{ $affinityCategory->alias }}</td>
+
+                <?php
+                if($affinityCategory->status == 1)
+                {
+                $status = 'Active';
+                }
+                else
+                { 
+                $status = 'Inactive';
+                }
+                ?>
+                
+
+                <td><span class='label label-success' style='color: green'>{{ $status }}</span></td>
+                <td>{{ $affinityCategory->created }}</td>
+                <td>{{ $affinityCategory->modified }}</td>
+               
+            </tr>
+            @endforeach
+                    </tbody>
+    </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+                        <li class="prev disabled"><a href="" onclick="return false;">&lt; previous</a></li>            <li class="active"><a href="">1</a></li><li><a href="/affinity-categories?page=2">2</a></li>            <li class="next"><a rel="next" href="/affinity-categories?page=2">next &gt;</a></li>            <li class="last"><a href="/affinity-categories?page=2">last &gt;&gt;</a></li>        </ul>
+        <p>Page 1 of 2, showing 20 record(s) out of 30 total</p>
+    </div>
+</div>
+                </div>
             <footer class="main-footer">
     <div class="pull-right hidden-xs">
         <b>Version</b> {{ App::VERSION() }}
     </div>
-    <strong>Copyright &copy; 2022 <a href="http://www.singleinterface.com">Singleinterface</a>.</strong> All rights
+    <strong>Copyright &copy; 2022 <a href="{{url('/')}}">Singleinterface</a>.</strong> All rights
     reserved.
 </footer>
 <script>
            // saveBrowsingLogs();
             function saveBrowsingLogs(){
-                var url = '/publishers';
+                var url = '/affinity-categories';
                 var queryString = "url="+url;
                   jQuery.ajax({
                                     type: "POST",
-                                    url: 'https://testing.myspotlight.co/ajax/save-browsing-logs',
+                                    url: {{url('/ajax/save-browsing-logs')}},
                                     data: queryString,     
                                           
                                     success: function(data){                
@@ -358,7 +508,7 @@ function getClient(id)
         });
 
     }
-</script>            <aside class="control-sidebar control-sidebar-dark">
+</script><aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
         <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
@@ -548,21 +698,21 @@ function getClient(id)
 </aside>
             <div class="control-sidebar-bg"></div>
         </div>
-        <style>.sidebar-toggle{display: none;}.main-footer{margin-left: 0;}.panel{max-width: 1100px;margin: 0 auto;}</style>
-        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script><script src="/admin_l_t_e/bootstrap/js/bootstrap.js"></script><script src="/admin_l_t_e/js/bootstrap-datepicker.js"></script><script src="/admin_l_t_e/js/bootstrap-datetimepicker.js"></script><script src="/admin_l_t_e/plugins/slimScroll/jquery.slimscroll.min.js"></script><script src="/admin_l_t_e/plugins/fastclick/fastclick.js"></script><script src="/admin_l_t_e/js/AdminLTE.min.js"></script><script src="/admin_l_t_e/js/select2.min.js"></script><script src="/frontend/js/common.js"></script><script src="/usermgmt/js/chosen/chosen.ajaxaddition.jquery.js?q=60820317"></script><script src="/admin_l_t_e/js/jquery-ui-1.10.4.custom.min.js"></script>        <script type="text/javascript">
-            $(document).ready(function(){
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script><script src="/admin_l_t_e/bootstrap/js/bootstrap.js"></script><script src="/admin_l_t_e/js/star-rating.js"></script><script src="/admin_l_t_e/plugins/slimScroll/jquery.slimscroll.min.js"></script><script src="/admin_l_t_e/plugins/fastclick/fastclick.js"></script><script src="/admin_l_t_e/js/AdminLTE.min.js"></script><script src="/admin_l_t_e/js/select2.min.js"></script><script src="/usermgmt/js/chosen/chosen.ajaxaddition.jquery.js?q=60820317"></script><script src="/admin_l_t_e/plugins/chartjs/Chart.min.js"></script><script src="/admin_l_t_e/js/jquery-ui-1.10.4.custom.min.js"></script><script src="/frontend/js/common.js"></script><script src="/frontend/js/form.submit.js"></script>        <script type="text/javascript">
+            $(document).ready(function () {
                 $(".navbar .menu").slimscroll({
                     height: "200px",
                     alwaysVisible: false,
                     size: "3px"
                 }).css("width", "100%");
-                var a = $('a[href="/publishers"]');
+
+                var a = $('a[href="/affinity-categories"]');
                 if (!a.parent().hasClass('treeview')) {
                     a.parent().addClass('active').parents('.treeview').addClass('active');
                 }
             });
             $('.select2').select2();
         </script>
+        
     </body>
 </html>
- 
