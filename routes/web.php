@@ -25,7 +25,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Dashboard Routes
      */
-    // Route::get('/dashboard', 'LoginController@dashboard');
+    
     Route::get('/dashboard', 'DashboardController@index');
 
     Route::group(['prefix' => 'publishers'], function() {
@@ -34,6 +34,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/', 'DashboardController@publishers')->name('dashboard.publishers');
 
     });
+    
 
         Route::group(['namespace' => 'Admin'], function()
     {
@@ -41,7 +42,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     {
 
         // Route::get('/publisher-dashboard/{publisher}', );
-
+        
         Route::get('/affinity-categories', 'AffinityCategoriesController@index')->name('AffinityCategories');
 
     });

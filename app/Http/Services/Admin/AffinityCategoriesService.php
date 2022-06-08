@@ -7,10 +7,9 @@ use App\Models\Backend\Admin\AffinityCategories;
 class AffinityCategoriesService
 {
 
-    public function index()
-    {
-        $affinityCategories = AffinityCategories::latest()->paginate(20);
-        return view('backend.dashboards.admin.affinityCategories.index', compact('affinityCategories'));
+    public function get()
+    { 
+        return AffinityCategories::latest()->paginate(20);
     }
 
 }
