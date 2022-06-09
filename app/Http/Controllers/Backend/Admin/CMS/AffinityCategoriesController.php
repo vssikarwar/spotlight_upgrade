@@ -8,11 +8,15 @@ use App\Http\Services\Admin\AffinityCategoriesService;
 
 class AffinityCategoriesController extends Controller
 {
+    public function __construct(AffinityCategoriesService $AffinityCategories)
+    {
+        $this->AffinityCategories = $AffinityCategories;
+    }
+
     public function index()
     {
-        $AffinityCategories = new AffinityCategoriesService();
         
-        $affinityCategories = $AffinityCategories->get();
+        $affinityCategories = $this->AffinityCategories->get();
 
         return view('backend.dashboards.admin.affinityCategories.index', compact('affinityCategories'));
     }
