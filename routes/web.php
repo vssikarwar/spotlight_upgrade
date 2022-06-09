@@ -45,8 +45,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         // Route::get('/publisher-dashboard/{publisher}', );
         
         Route::get('/affinity-categories', 'AffinityCategoriesController@index')->name('AffinityCategories');
+       
 
     });
+
+    Route::get('/myprofile', 'AdminController@profile')->name('AffinityCategories');
+    
     });
 
 
