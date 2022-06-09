@@ -45,7 +45,20 @@
         @foreach ($affinityCategories as $key => $affinityCategory)
                         <tr>
                 <td>{{ $affinityCategory->id }}</td>
-                <td></td>
+                <?php $id = $affinityCategory->id; ?>
+                
+                <td class="actions">
+                <a href="/affinity-categories/edit/{{$id}}" class="btn btn-success btn-xs">
+                  <i class="fa fa-edit"></i></a>                            
+                  <form name="post_62a194d0c3998911570236" style="display:none;" method="post" action="/affinity-categories/delete/{{$id}}">
+                  <input type="hidden" name="_method" value="POST">
+                  <input type="hidden" name="_csrfToken" autocomplete="off" value="684e7e0318b45dc8aa29affd2cdf8a00c59ac84235681eed02bd3d880a293561fa4e82356a043c979ac40187abb5f16190ea7cd920c2d38946e8fabc1b99d95d">
+                  <div style="display:none;">
+                  <input type="hidden" name="_Token[fields]" autocomplete="off" value="bbfc1435449e24024708e5e20759ad55050f4da2%3A">
+                  <input type="hidden" name="_Token[unlocked]" autocomplete="off" value="">
+                </div></form><a href="#" class="btn btn-danger btn-xs" onclick="if (confirm(&quot;Are you sure you want to delete # 2?&quot;)) { document.post_62a194d0c3998911570236.submit(); } event.returnValue = false; return false;"><i class="fa fa-trash"></i></a>                            
+                        </td>
+
                 <?php $id = $affinityCategory->id; ?>
                 <td><a href="/affinity-categories/view/18">Local News Junkies</a></td>
                 <td>{{ $affinityCategory->googleid }}</td>

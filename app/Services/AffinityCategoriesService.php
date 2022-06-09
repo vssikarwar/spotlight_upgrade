@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Services\Admin;
+namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Models\Backend\Admin\AffinityCategories;
