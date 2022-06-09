@@ -28,8 +28,13 @@ class DashboardController extends Controller
 
     public function publishers()
     {
-        $publishers = Publishers::latest()->paginate(10);
+        $publishers = Publishers::paginate(10);
             return view('backend.dashboards.admin.index', compact('publishers'));
+    }
+
+    public function publishersDashboard()
+    {
+        return view('backend.dashboards.admin.dashboard');   
     }
     
 }

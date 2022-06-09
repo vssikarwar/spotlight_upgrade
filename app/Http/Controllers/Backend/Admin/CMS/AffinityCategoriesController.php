@@ -20,4 +20,5 @@ class AffinityCategoriesController extends Controller
 
         return view('backend.dashboards.admin.affinityCategories.index', compact('affinityCategories'));
     }
+
 }

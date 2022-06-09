@@ -9,7 +9,8 @@ class AffinityCategoriesService
 
     public function get()
     { 
-        return AffinityCategories::latest()->paginate(20);
+        return AffinityCategories::all();
     }
+    
 
 }

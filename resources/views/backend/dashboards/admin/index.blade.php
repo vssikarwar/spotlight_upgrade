@@ -319,7 +319,7 @@ function getClient(id)
                 <td>{{$publisher->modified}}</td>
                 <td class="actions">
                 <a href="/publishers/edit/1" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a> 
-                <a href="/publishers/publisher-dashboard/1" class="btn btn-success btn-xs"><i class="fa fa-navicon"></i></a>                            
+                <a href="/publishers/publisher-dashboard/{{$id}}" class="btn btn-success btn-xs"><i class="fa fa-navicon"></i></a>                            
                            
                 </td>
 

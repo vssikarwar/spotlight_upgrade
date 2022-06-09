@@ -59,8 +59,25 @@
                 </div></form><a href="#" class="btn btn-danger btn-xs" onclick="if (confirm(&quot;Are you sure you want to delete # 2?&quot;)) { document.post_62a194d0c3998911570236.submit(); } event.returnValue = false; return false;"><i class="fa fa-trash"></i></a>                            
                         </td>
 
-                <?php $id = $affinityCategory->id; ?>
-                <td><a href="/affinity-categories/view/18">Local News Junkies</a></td>
+                <?php $id = $affinityCategory->id; 
+                      $pid = $affinityCategory->parent_id;
+                      
+                      $parr[$id] = $affinityCategory->name ;
+
+                if($pid == 0)
+                {
+                $parent = "";
+                }
+                else
+                {
+                $parent = $parr[$pid];
+                }
+
+                ?>
+
+
+
+                <td><a href="/affinity-categories/view/18">{{ $parent }}</a></td>
                 <td>{{ $affinityCategory->googleid }}</td>
                 <td>{{ $affinityCategory->name }}</td>
                 <td>{{ $affinityCategory->alias }}</td>
@@ -303,25 +320,6 @@
         <!-- /.tab-pane -->
     </div>
 </aside>
-            <div class="control-sidebar-bg"></div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script><script src="/admin_l_t_e/bootstrap/js/bootstrap.js"></script><script src="/admin_l_t_e/js/star-rating.js"></script><script src="/admin_l_t_e/plugins/slimScroll/jquery.slimscroll.min.js"></script><script src="/admin_l_t_e/plugins/fastclick/fastclick.js"></script><script src="/admin_l_t_e/js/AdminLTE.min.js"></script><script src="/admin_l_t_e/js/select2.min.js"></script><script src="/usermgmt/js/chosen/chosen.ajaxaddition.jquery.js?q=60820317"></script><script src="/admin_l_t_e/plugins/chartjs/Chart.min.js"></script><script src="/admin_l_t_e/js/jquery-ui-1.10.4.custom.min.js"></script><script src="/frontend/js/common.js"></script><script src="/frontend/js/form.submit.js"></script>        <script type="text/javascript">
-            $(document).ready(function () {
-                $(".navbar .menu").slimscroll({
-                    height: "200px",
-                    alwaysVisible: false,
-                    size: "3px"
-                }).css("width", "100%");
-
-                var a = $('a[href="/affinity-categories"]');
-                if (!a.parent().hasClass('treeview')) {
-                    a.parent().addClass('active').parents('.treeview').addClass('active');
-                }
-            });
-            $('.select2').select2();
-        </script>
-        
-    </body>
-</html>
+            
 
 @endsection

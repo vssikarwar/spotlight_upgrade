@@ -32,6 +32,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
         Route::get('/{publisher}/edit', 'DashboardController@edit')->name('publishers.edit');
         Route::get('/', 'DashboardController@publishers')->name('dashboard.publishers');
+        Route::get('/publisher-dashboard/{publisher}','DashboardController@publishersDashboard');
 
     });
     

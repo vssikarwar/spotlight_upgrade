@@ -461,7 +461,7 @@ function getClient(id)
             <a href="#">
                 <i class="fa fa-group"></i>
                 <span>Group Permissions</span>
-                <span class="pull-right-container">
+                <span class="pull-right-container"> 
                     <i class="fa fa-angle-left pull-right"></i>
                 </span>
             </a>
