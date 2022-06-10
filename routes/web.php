@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
     /*
@@ -26,7 +27,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Dashboard Routes
      */
     
-    Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
 
     Route::group(['prefix' => 'publishers'], function() {
 
@@ -37,8 +38,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
     
 
-        Route::group(['namespace' => 'Admin'], function()
-    {
+
         Route::group(['namespace' => 'CMS'], function()
     {
 
@@ -51,9 +51,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     Route::get('/myprofile', 'AdminController@profile')->name('AffinityCategories');
     
-    });
-
-
 
 
 

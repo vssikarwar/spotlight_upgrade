@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Admin\CMS;
-
+namespace App\Http\Controllers\Backend\CMS;
+ 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\AffinityCategoriesService;
+
 
 class AffinityCategoriesController extends Controller
 {
@@ -15,10 +16,12 @@ class AffinityCategoriesController extends Controller
 
     public function index()
     {
-        
+
+
         $affinityCategories = $this->AffinityCategories->get();
 
         return view('backend.dashboards.admin.affinityCategories.index', compact('affinityCategories'));
+   
     }
 
 }
