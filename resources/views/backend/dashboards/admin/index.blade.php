@@ -1,6 +1,6 @@
 @extends('backend.dashboards.admin.layouts.main')
 
-@section('main-content') 
+@section('main-container')  
 
 
     <body class="hold-transition skin-blue sidebar-mini">

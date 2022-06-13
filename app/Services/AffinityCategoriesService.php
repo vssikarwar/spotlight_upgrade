@@ -10,6 +10,8 @@ class AffinityCategoriesService
 
     public function get()
     { 
+
+        
         $uid =  auth()->user()->id; 
 
         if($uid == 1)

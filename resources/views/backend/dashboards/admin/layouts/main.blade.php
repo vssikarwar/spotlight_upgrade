@@ -2,4 +2,4 @@
 
 @yield('main-container')
 
-@include('backend.dashboards.admin.layouts.footer')
+@include('backend.dashboards.admin.layouts.footer') 

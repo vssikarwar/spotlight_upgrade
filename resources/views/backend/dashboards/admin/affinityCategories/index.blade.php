@@ -1,4 +1,4 @@
-@extends('backend.dashboards.admin.layouts2.main')
+@extends('backend.dashboards.admin.layouts.main')
 
 @section('main-container') 
 
