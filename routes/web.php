@@ -28,26 +28,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      */
     
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
-
-    Route::group(['prefix' => 'publishers'], function() {
-
-        Route::get('/{publisher}/edit', 'DashboardController@edit')->name('publishers.edit');
-        Route::get('/', 'DashboardController@publishers')->name('dashboard.publishers');
-        Route::get('/publisher-dashboard/{publisher}','DashboardController@publishersDashboard');
-
-    });
     
 
 
-        Route::group(['namespace' => 'CMS'], function()
-    {
-
-        // Route::get('/publisher-dashboard/{publisher}', );
-        
-        Route::get('/affinity-categories', 'AffinityCategoriesController@index')->name('AffinityCategories');
-       
-
-    });
+     
 
     Route::get('/myprofile', 'AdminController@profile')->name('AffinityCategories');
     
@@ -56,8 +40,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
 
 
-    /**
-         * Posts Routes
+        /**
+         * Location Routes
          */
         Route::group(['prefix' => 'locations'], function() {
 
@@ -124,6 +108,31 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
                 Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
             });
         });
+
+        Route::group(['namespace' => 'CMS'], function()
+        {
+    
+            // Route::get('/publisher-dashboard/{publisher}', );
+            
+            Route::get('/affinity-categories', 'AffinityCategoriesController@index')->name('AffinityCategories.index');
+            Route::get('/cms-categories', 'CmsCategoriesController@index')->name('CmsCategories.index');
+            Route::get('/cms-pages', 'CmsPagesController@index')->name('CmsPages.index');
+
+           
+
+           
+    
+        });
+
+        Route::group(['prefix' => 'publishers'], function() 
+    {
+
+        Route::get('/{publisher}/edit', 'DashboardController@edit')->name('publishers.edit');
+        Route::get('/', 'DashboardController@publishers')->name('dashboard.publishers');
+        Route::get('/publisher-dashboard/{publisher}','DashboardController@publishersDashboard');
+
+    });
+
 
         /**
          * Posts Routes

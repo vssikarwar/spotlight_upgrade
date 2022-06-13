@@ -15,13 +15,29 @@ class AffinityCategoriesController extends Controller
     }
 
     public function index()
-    {
+    { 
 
 
         $affinityCategories = $this->AffinityCategories->get();
 
         return view('backend.dashboards.admin.affinityCategories.index', compact('affinityCategories'));
+
    
+    }
+
+    public function new()
+    {
+
+    }
+
+    public function import()
+    {
+
+    }
+
+    public function export()
+    {
+        
     }
 
 }

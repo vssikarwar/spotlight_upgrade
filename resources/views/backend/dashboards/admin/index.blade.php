@@ -1,6 +1,6 @@
 @extends('backend.dashboards.admin.layouts.main')
 
-@section('main-container')  
+@section('main-content') 
 
 
     <body class="hold-transition skin-blue sidebar-mini">
@@ -546,23 +546,5 @@ function getClient(id)
         <!-- /.tab-pane -->
     </div>
 </aside>
-            <div class="control-sidebar-bg"></div>
-        </div>
-        <style>.sidebar-toggle{display: none;}.main-footer{margin-left: 0;}.panel{max-width: 1100px;margin: 0 auto;}</style>
-        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script><script src="/admin_l_t_e/bootstrap/js/bootstrap.js"></script><script src="/admin_l_t_e/js/bootstrap-datepicker.js"></script><script src="/admin_l_t_e/js/bootstrap-datetimepicker.js"></script><script src="/admin_l_t_e/plugins/slimScroll/jquery.slimscroll.min.js"></script><script src="/admin_l_t_e/plugins/fastclick/fastclick.js"></script><script src="/admin_l_t_e/js/AdminLTE.min.js"></script><script src="/admin_l_t_e/js/select2.min.js"></script><script src="/frontend/js/common.js"></script><script src="/usermgmt/js/chosen/chosen.ajaxaddition.jquery.js?q=60820317"></script><script src="/admin_l_t_e/js/jquery-ui-1.10.4.custom.min.js"></script>        <script type="text/javascript">
-            $(document).ready(function(){
-                $(".navbar .menu").slimscroll({
-                    height: "200px",
-                    alwaysVisible: false,
-                    size: "3px"
-                }).css("width", "100%");
-                var a = $('a[href="/publishers"]');
-                if (!a.parent().hasClass('treeview')) {
-                    a.parent().addClass('active').parents('.treeview').addClass('active');
-                }
-            });
-            $('.select2').select2();
-        </script>
-    </body>
-</html>
+
  
