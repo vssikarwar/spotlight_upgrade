@@ -4,13 +4,20 @@ namespace App\Http\Controllers\Backend\CMS;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\LmsApiData;
+use App\Services\LmsApiDataService;
 
 class LmsApiDataController extends Controller
 {
-    public function index()
+    public function __construct(LmsApiDataService $LmsApiData)
     {
-        $lmsApiData = LmsApiData::paginate(10);
+        $this->LmsApiData = $LmsApiData;
+    }
+
+    public function index()
+    {  
+
+
+        $lmsApiData = $this->LmsApiData->get();
 
         return view('backend.dashboards.admin.lmsApiData.index', compact('lmsApiData'));
         

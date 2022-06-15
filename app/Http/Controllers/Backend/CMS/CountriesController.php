@@ -4,14 +4,20 @@ namespace App\Http\Controllers\Backend\CMS;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Countries;
+use App\Services\CountriesService;
 
 class CountriesController extends Controller
 {
-    public function index()
+    public function __construct(CountriesService $Countries)
     {
-        
-        $countries = Countries::paginate(10);
+        $this->Countries = $Countries;
+    }
+
+    public function index()
+    {  
+
+
+        $countries = $this->Countries->get();
 
         return view('backend.dashboards.admin.countries.index', compact('countries'));
        

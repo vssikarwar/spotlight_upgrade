@@ -4,13 +4,20 @@ namespace App\Http\Controllers\Backend\CMS;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\TimeZones;
+use App\Services\TimeZonesService;
 
 class TimeZonesController extends Controller
 {
-    public function index()
+    public function __construct(TimeZonesService $TimeZones)
     {
-        $timeZones = TimeZones::paginate(10);
+        $this->TimeZones = $TimeZones;
+    }
+
+    public function index()
+    {  
+
+
+        $timeZones = $this->TimeZones->get();
     
         return view('backend.dashboards.admin.timeZones.index', compact('timeZones'));
        

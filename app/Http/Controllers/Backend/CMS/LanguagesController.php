@@ -4,14 +4,21 @@ namespace App\Http\Controllers\Backend\CMS;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Languages;
+use App\Services\LanguagesService;
 
 
 class LanguagesController extends Controller
 {
-    public function index()
+    public function __construct(LanguagesService $Languages)
     {
-        $languages = Languages::paginate(10);
+        $this->Languages = $Languages;
+    }
+
+    public function index()
+    {  
+
+
+        $languages = $this->Languages->get();
     
         return view('backend.dashboards.admin.languages.index', compact('languages'));
        

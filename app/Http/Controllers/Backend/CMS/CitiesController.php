@@ -4,13 +4,21 @@ namespace App\Http\Controllers\Backend\CMS;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Cities;
+use App\Services\CitiesService;
+
 
 class CitiesController extends Controller
 {
-    public function index()
+    public function __construct(CitiesService $Cities)
     {
-        $cities = Cities::paginate(10);
+        $this->Cities = $Cities;
+    }
+
+    public function index()
+    {  
+
+
+        $cities = $this->Cities->get();
     
         return view('backend.dashboards.admin.cities.index', compact('cities'));
        

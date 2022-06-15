@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers\Backend\CMS;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
-use App\Models\CmsCategories;
+use App\Services\CmsCategoriesService;
+
 
 class CmsCategoriesController extends Controller
 {
-    public function index()
+    public function __construct(CmsCategoriesService $CmsCategories)
     {
-        $cmsCategories = CmsCategories::paginate(10);
+        $this->CmsCategories = $CmsCategories;
+    }
+
+    public function index()
+    {  
+
+
+        $cmsCategories = $this->CmsCategories->get();
 
         return view('backend.dashboards.admin.cmsCategories.index', compact('cmsCategories'));
        

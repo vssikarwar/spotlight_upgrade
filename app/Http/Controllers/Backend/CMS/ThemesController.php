@@ -4,13 +4,21 @@ namespace App\Http\Controllers\Backend\CMS;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Themes;
+use App\Services\ThemesService;
+
 
 class ThemesController extends Controller
 {
-    public function index()
+    public function __construct(ThemesService $Themes)
     {
-        $themes = Themes::paginate(10);
+        $this->Themes = $Themes;
+    }
+
+    public function index()
+    {  
+
+
+        $themes = $this->Themes->get();
     
         return view('backend.dashboards.admin.themes.index', compact('themes'));
        

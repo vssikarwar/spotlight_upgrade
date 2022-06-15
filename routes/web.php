@@ -122,7 +122,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/product-categories', 'ProductCategoriesController@index')->name('ProductCategories.index');
 
             
-
             Route::get('/countries', 'CountriesController@index')->name('Countries.index');
             Route::get('/states', 'StatesController@index')->name('States.index');
             Route::get('/cities', 'CitiesController@index')->name('Cities.index');

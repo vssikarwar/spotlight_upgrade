@@ -3,7 +3,6 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Models\Backend\Admin\AffinityCategories;
-use App\Models\User;
 
 class AffinityCategoriesService
 {
@@ -11,10 +10,10 @@ class AffinityCategoriesService
     public function get()
     { 
         
-          return AffinityCategories::all();
+          return AffinityCategories::paginate(20);
     
         
-    }
+    } 
     
  
 } 

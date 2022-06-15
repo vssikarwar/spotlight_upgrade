@@ -4,13 +4,20 @@ namespace App\Http\Controllers\Backend\CMS;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\MobileAppCategory;
+use App\Services\MobileAppCategoryService;
 
 class MobileAppCategoryController extends Controller
 {
-    public function index()
+    public function __construct(MobileAppCategoryService $MobileAppCategory)
     {
-        $mobileAppCategories = MobileAppCategory::paginate(10);
+        $this->MobileAppCategory = $MobileAppCategory;
+    }
+
+    public function index()
+    {  
+
+
+        $mobileAppCategories = $this->MobileAppCategory->get();
 
         return view('backend.dashboards.admin.mobileAppCategories.index', compact('mobileAppCategories'));
 

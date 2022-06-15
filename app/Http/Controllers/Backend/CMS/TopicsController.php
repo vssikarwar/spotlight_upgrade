@@ -4,15 +4,22 @@ namespace App\Http\Controllers\Backend\CMS;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Topics;
+use App\Services\TopicsService;
 
 
 class TopicsController extends Controller
 {
-    public function index()
+    public function __construct(TopicsService $Topics)
     {
-        
-        $topics = Topics::paginate(10);
+        $this->Topics = $Topics;
+    }
+
+    public function index()
+    {  
+
+
+        $topics = $this->Topics->get();
+
     
         return view('backend.dashboards.admin.topics.index', compact('topics'));
        
