@@ -117,10 +117,24 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/affinity-categories', 'AffinityCategoriesController@index')->name('AffinityCategories.index');
             Route::get('/cms-categories', 'CmsCategoriesController@index')->name('CmsCategories.index');
             Route::get('/cms-pages', 'CmsPagesController@index')->name('CmsPages.index');
+            Route::get('/mobile-app-categories', 'MobileAppCategoryController@index')->name('MobileAppCategory.index');
+            Route::get('/customer-pincodes', 'CustomerPincodesController@index')->name('CustomerPincodes.index');
+            Route::get('/product-categories', 'ProductCategoriesController@index')->name('ProductCategories.index');
 
-           
+            
 
-           
+            Route::get('/countries', 'CountriesController@index')->name('Countries.index');
+            Route::get('/states', 'StatesController@index')->name('States.index');
+            Route::get('/cities', 'CitiesController@index')->name('Cities.index');
+            Route::get('/languages', 'LanguagesController@index')->name('Languages.index');
+            Route::get('/country-language-mapping', 'CountryLanguageMappingController@index')->name('CountryLanguageMapping.index');
+            Route::get('/time-zones', 'TimeZonesController@index')->name('TimeZones.index');
+            Route::get('/currencies', 'CurrenciesController@index')->name('Currencies.index');
+            Route::get('/topics', 'TopicsController@index')->name('Topics.index');
+            Route::get('/landingpage-themes', 'ThemesController@index')->name('Themes.index');
+            Route::get('/call-to-action-logs', 'CallToActionController@index')->name('CallToAction.index');
+            Route::get('/lms-api-data', 'LmsApiDataController@index')->name('LmsApiData.index');
+
     
         });
 

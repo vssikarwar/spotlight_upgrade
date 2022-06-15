@@ -75,7 +75,7 @@
         <p>Page  of , showing  record(s) out of  total</p>
     </div>
 </div>
-                </div>
+           
 
 @endsection
             

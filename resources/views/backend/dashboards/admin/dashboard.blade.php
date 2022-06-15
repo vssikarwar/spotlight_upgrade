@@ -22,7 +22,7 @@
 			Publisher Dashboard		</span>
 	</div>
 	<div class="panel-body dashboard-section">
-Hello Admin Spotlight<br/><br/>Your last login time is 03-Jun-2022 01:13 PM<br/><br/>	</div>
+Hello Admin Spotlight<br/><br/>Your last login time is 03-Jun-2022 01:13 PM<br/><br/>s	</div>
     
     
 </div>

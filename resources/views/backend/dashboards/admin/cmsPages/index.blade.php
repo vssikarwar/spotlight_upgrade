@@ -95,6 +95,5 @@
         <p>Page 1 of 6, showing 20 record(s) out of 108 total</p>
     </div>
 </div>
-                </div>
             
                 @endsection
