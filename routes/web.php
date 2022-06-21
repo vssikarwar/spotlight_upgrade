@@ -115,6 +115,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             // Route::get('/publisher-dashboard/{publisher}', );
             
             Route::get('/affinity-categories', 'AffinityCategoriesController@index')->name('AffinityCategories.index');
+            Route::get('/affinity-categories/rj', 'AffinityCategoriesController@rightjoin')->name('AffinityCategories.index');
+
             Route::get('/cms-categories', 'CmsCategoriesController@index')->name('CmsCategories.index');
             Route::get('/cms-pages', 'CmsPagesController@index')->name('CmsPages.index');
             Route::get('/mobile-app-categories', 'MobileAppCategoryController@index')->name('MobileAppCategory.index');

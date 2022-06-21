@@ -40,8 +40,6 @@
                     <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=name">Name</a></th>
                     <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=alias">Alias</a></th>
                     <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=status">Status</a></th>
-                    <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=created">Created</a></th>
-                    <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=modified">Modified</a></th>
 
                     
                 </tr>
@@ -96,17 +94,18 @@
         ?>
 
         <td><span class='label label-success' style='color: green'>{{ $status }}</span></td>
-        <td>{{ $affinityCategory->created }}</td>
-        <td>{{ $affinityCategory->modified }}</td>
         </tr>
         @endforeach
                         
                 
             </tbody>
         </table>
+
+        <!-- $affinityCategory->links() -->
+
         <div class="paginator">
             <ul class="pagination">
-                            <!-- <li class="prev disabled"><a href="" onclick="return false;">&lt; previous</a></li>            <li class="active"><a href="">1</a></li><li><a href="/countries?page=2">2</a></li><li><a href="/countries?page=3">3</a></li><li><a href="/countries?page=4">4</a></li><li><a href="/countries?page=5">5</a></li><li><a href="/countries?page=6">6</a></li><li><a href="/countries?page=7">7</a></li><li><a href="/countries?page=8">8</a></li><li><a href="/countries?page=9">9</a></li>            <li class="next"><a rel="next" href="/countries?page=2">next &gt;</a></li>            <li class="last"><a href="/countries?page=13">last &gt;&gt;</a></li>        </ul> -->
+                            <li class="prev disabled"><a href="" onclick="return false;">&lt; previous</a></li>            <li class="active"><a href="">1</a></li><li><a href="/countries?page=2">2</a></li><li><a href="/countries?page=3">3</a></li><li><a href="/countries?page=4">4</a></li><li><a href="/countries?page=5">5</a></li><li><a href="/countries?page=6">6</a></li><li><a href="/countries?page=7">7</a></li><li><a href="/countries?page=8">8</a></li><li><a href="/countries?page=9">9</a></li>            <li class="next"><a rel="next" href="/countries?page=2">next &gt;</a></li>            <li class="last"><a href="/countries?page=13">last &gt;&gt;</a></li>        </ul>
             <p>Page  of , showing  record(s) out of  total</p>
         </div>
         </div>
