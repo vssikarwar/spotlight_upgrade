@@ -14,7 +14,7 @@ class AffinityCategoriesController extends Controller
         $this->AffinityCategories = $AffinityCategories;
     }
 
-    public function index()
+    public function index() 
     {  
 
 

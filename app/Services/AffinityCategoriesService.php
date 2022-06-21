@@ -7,7 +7,7 @@ use App\Models\Backend\Admin\AffinityCategories;
 class AffinityCategoriesService
 {
 
-    public function get()
+    public function get() 
     { 
         
           return AffinityCategories::paginate(20);

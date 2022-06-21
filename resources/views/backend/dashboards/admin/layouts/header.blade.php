@@ -29,7 +29,10 @@
         <link rel="stylesheet" href="{{ asset('css/sweetalert.css') }}"/>
         <link rel="stylesheet" href="{{ asset('css/bootstrap-colorpicker.css') }}"/>
         <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css?q=60820317') }}"/>
-        <link rel="stylesheet" href="{{ asset('css/skin-blue.css') }}"/>        
+        <link rel="stylesheet" href="{{ asset('css/skin-blue.css') }}"/>    
+        
+        <!-- Theme style -->
+        <!-- <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}"> -->
         
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script src="{{ URL::asset('js/umscript.js?q=60820317') }}"></script>
