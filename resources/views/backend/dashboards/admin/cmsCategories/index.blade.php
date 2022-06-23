@@ -2,22 +2,7 @@
 
 @section('main-container') 
 
-                <div class="content-wrapper">
-                    
-
-                    <section class="content-header">        
-    <a href="/cms-categories/add" class="btn btn-success">New Cms Category</a>    
   
-    <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Publishers</li>
-    
-</ol>
-<!--<ol class="breadcrumb"
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-</ol>--></section>   
 <br> 
 <div class="publishers index large-9 medium-8 columns content box">
     <h3>Cms Categories</h3>

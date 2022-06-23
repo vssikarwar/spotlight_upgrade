@@ -1,34 +1,48 @@
-@extends('backend.layouts.main')
+@extends('backend.dashboards.admin.layouts.main')
 
-@section('main-content')
+@section('main-container') 
     
+<a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"><span class="glyphicon glyphicon-plus"></span></a>
 
-    <div class="bg-light p-4 rounded"> 
-        <h1>Users</h1>
-        <div class="lead">
-            Manage users here.
-            <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right">Add new user</a>
-        </div>
+</section>
         
         <div class="mt-2">
             @include('backend.layouts.partials.messages')
         </div>
 
-        <table class="table table-striped">
-            <thead>
+        <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                <h3 class="box-title">Users</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body"><table id="example2" class="table table-bordered table-hover">
+                    <thead>
             <tr>
                 <th scope="col" width="1%">Id</th>
+                <th scope="col" width="1%" colspan="3">Action</th> 
                 <th scope="col" width="15%">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col" width="10%">Username</th>
                 <th scope="col" width="10%">Roles</th>
-                <th scope="col" width="1%" colspan="3"></th>    
+   
             </tr>
             </thead>
             <tbody>
                 @foreach($users as $user)
                     <tr>
                         <th scope="row">{{ $user->id }}</th>
+
+                        <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i></a></td>
+                        <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a></td>
+                        <td>
+                            {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                            {!! Form::close() !!}
+                        </td>
+
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->username }}</td>
@@ -37,21 +51,24 @@
                                 <span class="badge bg-info">{{ $role->name }}</span>
                             @endforeach
                         </td>
-                        <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-warning btn-sm">Show</a></td>
-                        <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a></td>
-                        <td>
-                            {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                            {!! Form::close() !!}
-                        </td>
+                        
                     </tr>
                 @endforeach
             </tbody>
         </table>
 
+        <div class="paginator">
+            <ul class="pagination">
+             {!! $users->links() !!}
+            <p>Page  of , showing  record(s) out of  total</p>
+        </div>
         <div class="d-flex">
-            {!! $users->links() !!}
+            
         </div>
 
     </div>
+    </div>
+    </div>
+    </div>
+
 @endsection

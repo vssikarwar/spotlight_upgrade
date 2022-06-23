@@ -3,7 +3,6 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Models\Backend\Admin\AffinityCategories;
-use Illuminate\Support\Facades\DB;
 
 
 class AffinityCategoriesService
@@ -12,21 +11,13 @@ class AffinityCategoriesService
     public function get() 
     { 
 
-          return AffinityCategories::paginate(20);
+        $result = AffinityCategories::rightJoin('affinity_categories as p', 'affinity_categories.id', '=', 'p.parent_id')
+        ->select('p.id', 'affinity_categories.googleid', 'p.name', 'p.alias', 'p.status', 'affinity_categories.name as parent')
+        ->paginate(15);
+        return $result;
     
         
     } 
-
-    public function rightjoin()
-    {
-
-        $result = DB::table('affinity_categories n')
-        ->rightJoin('affinity_categories p', 'n.id', '=', 'p.parent_id')
-        ->select('p.id', 'n.googleid', 'p.name', 'p.alias', 'p.status', 'n.name as parent')
-        ->get();
-        return $result::paginate(20);
-
-    }
     
  
 } 

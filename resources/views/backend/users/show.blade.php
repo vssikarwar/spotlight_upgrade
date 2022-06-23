@@ -1,6 +1,6 @@
-@extends('backend.layouts.app-master')
+@extends('backend.dashboards.admin.layouts.main')
 
-@section('content')
+@section('main-container')
     <div class="bg-light p-4 rounded">
         <h1>Show user</h1>
         <div class="lead">

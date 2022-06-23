@@ -484,6 +484,24 @@ function getClient(id)
 </aside>
 
 
+<div class="content-wrapper">
+
+
+<section class="content-header">
+    
+
+<ol class="breadcrumb">
+<li><a href="publishers/publisher-dashboard/1"><i class="fa fa-dashboard"></i>Home</a></li>
+<?php $segments = ''; ?>
+@foreach(Request::segments() as $segment)
+<?php $segments .= '/'.$segment; ?>
+<li>
+<a href="{{ $segments }}">{{$segment}}</a>
+</li>
+@endforeach
+</ol>
+
+
 
 
     
