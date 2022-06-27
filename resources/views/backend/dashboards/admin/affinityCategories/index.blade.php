@@ -1,12 +1,12 @@
 @extends('backend.dashboards.admin.layouts.main')
 
 @section('main-container') 
-<a href="/affinity-categories/add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>     
-<a href="/affinity-categories/import" class="btn btn-primary">Import</a>     
-<a href="/affinity-categories/export" class="btn btn-primary">Export</span></a> 
+        <a href="/affinity-categories/add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>     
+        <a href="/affinity-categories/import" class="btn btn-primary">Import</a>     
+        <a href="/affinity-categories/export" class="btn btn-primary">Export</span></a> 
 
-</section>
-        <section class="content">
+    </section>
+    <section class="content">
         <div class="row">
             <div class="col-xs-12">
             <div class="box">
@@ -31,13 +31,18 @@
             <tbody>
             @foreach ($affinityCategories as $key => $affinityCategory)
         <tr>
-        <td>{{ $affinityCategory->id }}</td>
-        <?php $id = $affinityCategory->id; ?>
+        <td>
+            {{ $affinityCategory->id }}
+        </td>
+
+            <?php $id = $affinityCategory->id; ?>
+            
         <td class="actions">
-        <a href="/affinity-categories/edit/{{$id}}" class="btn btn-success btn-xs">
-        <i class="fa fa-edit"></i></a> 
-        <form name="post_62a194d0c3998911570236" style="display:none;" method="post" action="/affinity-categories/delete/{{$id}}">
-         </div></form><a href="#" class="btn btn-danger btn-xs" onclick="if (confirm(&quot;Are you sure you want to delete # 2?&quot;)) { document.post_62a194d0c3998911570236.submit(); } event.returnValue = false; return false;"><i class="fa fa-trash"></i></a> 
+            <a href="/affinity-categories/edit/{{$id}}" class="btn btn-success btn-xs"> 
+                <i class="fa fa-edit"></i>
+            </a> 
+            
+            <a href="affinity-categories/delete/{{$id}}" class="btn btn-danger btn-xs" onclick="if (confirm(&quot;Are you sure you want to delete #{{$id}} ?&quot;)) { document.post_62a194d0c3998911570236.submit(); } event.returnValue = false; return false;"><i class="fa fa-trash"></i></a> 
         </td>
 
         <?php $id = $affinityCategory->id;?>
@@ -48,18 +53,24 @@
         <td>{{ $affinityCategory->name }}</td>
         <td>{{ $affinityCategory->alias }}</td>
 
-        <?php
-        if($affinityCategory->status == 1)
-        {
-        $status = 'Active';
-        }
-        else
-        { 
-        $status = 'Inactive';
-        }
-        ?>
+        <td>
+            <?php
+                if($affinityCategory->status == 1)
+                {
+            ?>
+            <a href="/affinity-categories/status-update/{{$id}}" class="label label-success" onclick="if (confirm(&quot;Are you sure you want to update status of #{{$id}} ?&quot;)) { document.post_62a194d0c3998911570236.submit(); } event.returnValue = false; return false;" >Active</a>
+            <?php
+                }
+                else
+                { 
+            ?>
+            <a href="/affinity-categories/status-update/{{$id}}" class="label label-danger" onclick="if (confirm(&quot;Are you sure you want to update status of #{{$id}} ?&quot;)) { document.post_62a194d0c3998911570236.submit(); } event.returnValue = false; return false;" >Inactive</a>
+            
+            <?php
+            }
+            ?>
 
-        <td><span class='label label-success' style='color: green'>{{ $status }}</span></td>
+        </td>
         </tr>
         @endforeach
                         
@@ -80,7 +91,7 @@
             <!-- /.col -->
         </div>
         <!-- /.row -->
-        </section>
+    </section>
         <!-- /.content -->
 
 

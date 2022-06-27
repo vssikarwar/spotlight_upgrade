@@ -10,6 +10,8 @@ class AffinityCategories extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['parent_id','googleid','name','alias'];
+
     protected $table = 'affinity_categories';
 
     public const CREATED_AT = 'created';

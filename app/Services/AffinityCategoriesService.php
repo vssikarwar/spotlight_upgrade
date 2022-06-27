@@ -16,8 +16,8 @@ class AffinityCategoriesService
         ->paginate(15);
         return $result;
     
-        
     } 
+    
     
  
 } 

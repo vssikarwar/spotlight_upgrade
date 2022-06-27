@@ -6,7 +6,7 @@
         <div class="lead">
             Edit post.
         </div>
-
+ 
         <div class="container mt-4">
 
             <form method="POST" action="{{ route('posts.update', $post->id) }}">
