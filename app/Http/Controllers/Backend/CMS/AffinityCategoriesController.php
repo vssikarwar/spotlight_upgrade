@@ -55,24 +55,30 @@ class AffinityCategoriesController extends Controller
 
     public function export()
     {
-        $affinityCategories = $this->AffinityCategories->get();
 
-        $affinityCategories = $affinityCategories->hydrate(false)->toArray();
-        $largeAction=$this->maxFileArrayLength($affinityCategories);
-        $this->exportCsv($affinityCategories,$largeAction);
+         // $fileName = "Affinity-Category_" . date('Y-m-d h-i-s') . ".csv";
+        // $affinityCategories = AffinityCategories::all();
+        // $columns = array('Parent', 'Google Id', 'Name', 'Alias');
+
+
+        // $affinityCategories = $this->AffinityCategories->get();
+
+        // $affinityCategories = $affinityCategories->hydrate(false)->toArray();
+        // $largeAction=$this->maxFileArrayLength($affinityCategories);
+        // $this->exportCsv($affinityCategories,$largeAction);
 
     }
 
     public function exportCsv($data,$largeAction)
     {
 
-        $fields = array('Parent', 'Google Id', 'Name', 'Alias');
+        // $fields = array('Parent', 'Google Id', 'Name', 'Alias');
         
-        $delimiter = ","; 
-        //for file name 
-        $filename = "Affinity-Category_" . date('Y-m-d h-i-s') . ".csv";
-        // file path for save
-        $f = fopen(WWW_ROOT.'files/'.$filename,'w'); 
+        // $delimiter = ","; 
+        // //for file name 
+        // $filename = "Affinity-Category_" . date('Y-m-d h-i-s') . ".csv";
+        // // file path for save
+        // $f = fopen(WWW_ROOT.'files/'.$filename,'w'); 
       
     }
 
