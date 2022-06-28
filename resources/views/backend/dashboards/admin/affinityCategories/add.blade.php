@@ -19,7 +19,7 @@
                         <div class="box-body">
                             <div class="form-group ">
                                 <label class="control-label">Parent Category</label>
-                                <div class="input select"><select name="parent_id" class="form-control" id="affinitycategories-parent-id">
+                                <div class="input select"><select name="parent_id" class="form-control" id="affinitycategories-parent-id" value="{{ old('parent_id') }}">
                                     <option value="">---SELECT---</option>
                                     <option value="3">Beauty &amp; Wellness</option>
                                     <option value="4">Beauty &amp; Wellness / Beauty Mavens</option>
@@ -47,14 +47,50 @@
                                     <option value="11">Shoppers</option><option value="12">Sports &amp; Fitness</option>
                                     <option value="13">Technology</option><option value="14">Travel</option>
                                 </select>
+
+                                @if ($errors->has('parent_id'))
+
+                                    <small class="text text-danger" style="display: inline-block;">
+
+                                        <span class="text-danger text-left">{{ $errors->first('parent_id') }}</span>
+
+                                    </small>
+
+                                @endif
+
+
+
                             </div>                            </div>
                             <div class="form-group ">
                                 <label class="control-label required">Name</label>
-                                <div class="input text"><input type="text" name="name" class="form-control" maxlength="255" id="affinitycategories-name"/></div>                            
+                                <div class="input text"><input type="text" name="name" class="form-control" maxlength="255" id="affinitycategories-name" value="{{ old('name') }}"/>
+                                
+                                @if ($errors->has('name'))
+
+                                    <small class="text text-danger" style="display: inline-block;">
+
+                                        <span class="text-danger text-left">{{ $errors->first('name') }}</span>
+
+                                    </small>
+
+                                @endif
+
+                            </div>                            
                             </div>                                                  
                             <div class="form-group ">
                                 <label class="control-label required">Googleid</label>
-                                 <div class="input number"><input type="number" name="googleid" class="form-control" id="affinitycategories-googleid"/></div>                            
+                                 <div class="input number"><input type="number" name="googleid" class="form-control" id="affinitycategories-googleid" value="{{ old('googleid') }}"/>
+                                
+                                 @if ($errors->has('googleid'))
+
+                                        <small class="text text-danger" style="display: inline-block;">
+
+                                            <span class="text-danger text-left">{{ $errors->first('googleid') }}</span>
+
+                                        </small>
+
+                                    @endif
+                                </div>                            
                             </div>
                             <div class="form-group ">                                
                                 <div class="input checkbox"><input type="hidden" name="status" value="0"/>
