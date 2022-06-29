@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Backend\CMS;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\AffinityCategoriesService;
-use Illuminate\Support\Facades\DB;
 use App\Models\Backend\Admin\AffinityCategories;
 
 
@@ -14,14 +13,14 @@ class AffinityCategoriesController extends Controller
 {
     public function __construct(AffinityCategoriesService $AffinityCategories)
     {
-        $this->AffinityCategories = $AffinityCategories;
+        $this->AffinityCategoriesService = $AffinityCategories;
     }
 
     public function index() 
     {  
 
 
-        $affinityCategories = $this->AffinityCategories->get();
+        $affinityCategories = $this->AffinityCategoriesService->get();
 
         return view('backend.dashboards.admin.affinityCategories.index', compact('affinityCategories'));
 
@@ -35,17 +34,22 @@ class AffinityCategoriesController extends Controller
 
     public function addData(Request $request)
     {
-        //echo "<pre>";print_r(request()->all());die;
-        $alias = str_replace(' ','-',strtolower(request()->all()['name']));
-        AffinityCategories::create
-        (
-            array_merge
-            (
-                $request->only('parent_id','googleid','name','status'),
-                ['alias' => $alias]
-            )
-        );
-        echo 'Created';die;
+
+        $request->validate([
+            'name' => 'required|regex:/^[a-z A-Z]+$/u|max:55',
+            'googleid' => 'required',
+            'parent_id'=> 'required',
+        ]);
+        
+
+
+        $this->AffinityCategoriesService->add($request);
+
+
+        // $affinityCategories = $this->AffinityCategories->addData();
+
+        return redirect()->route('AffinityCategories.index')
+        ->withSuccess(__('Post created successfully.'));
     }
 
     public function import()
@@ -85,27 +89,11 @@ class AffinityCategoriesController extends Controller
 
     public function statusUpdate(AffinityCategories $affinityCategories)
     {
-      if($affinityCategories['status'] == 1)
-      {
-        $status = 0;
-      }
-      else
-      {
-        $status = 1;
-      }
 
-        // $result = $affinityCategories->update(['status' => $status]);
-
-        AffinityCategories::where('id', $affinityCategories['id'])
-        ->update([
-            'status' => $status
-         ]);
-
+        $this->AffinityCategoriesService->statusUpdate($affinityCategories);
 
         return redirect()->route('AffinityCategories.index')
             ->withSuccess(__('Post updated successfully.'));
-
-
 
     }
 
@@ -117,24 +105,28 @@ class AffinityCategoriesController extends Controller
     }
 
     public function update(Request $request, AffinityCategories $affinityCategories)
-    {
-        //echo "<pre>";print_r(request()->all());die;
-        $alias = str_replace(' ','-',strtolower(request()->all()['name']));
-        $result = $affinityCategories->update((array_merge(
-            $request->only('name','status'),
-            ['alias' => $alias]
-        )));
+    { 
         
-        //echo 1;die;
+        $request->validate([
+            'name' => 'required|regex:/^[a-z A-Z]+$/u|max:255',
+        ]);
+       
+
+        $this->AffinityCategoriesService->update($request, $affinityCategories);
+        
         return redirect()->route('AffinityCategories.index')
             ->withSuccess(__('Post updated successfully.'));
     }
 
     public function delete(AffinityCategories $affinityCategories) 
     {
-        $affinityCategories->delete();
+
+        $this->AffinityCategoriesService->delete($affinityCategories);
+
         return redirect()->route('AffinityCategories.index')
         ->withSuccess(__('Affinity Categories deleted successfully.'));
     }
+
+
 
 }
