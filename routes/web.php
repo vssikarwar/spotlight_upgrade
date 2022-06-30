@@ -113,7 +113,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         {
     
             // Route::get('/publisher-dashboard/{publisher}', );
-            
+
             Route::get('/affinity-categories', 'AffinityCategoriesController@index')->name('AffinityCategories.index');
             Route::get('/affinity-categories/add', 'AffinityCategoriesController@add')->name('AffinityCategories.add');
             Route::post('/affinity-categories/add-data', 'AffinityCategoriesController@addData')->name('AffinityCategories.addData');
@@ -152,13 +152,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         });
 
         Route::group(['prefix' => 'publishers'], function() 
-    {
+     {
 
         Route::get('/{publisher}/edit', 'DashboardController@edit')->name('publishers.edit');
         Route::get('/', 'DashboardController@publishers')->name('dashboard.publishers');
         Route::get('/publisher-dashboard/{publisher}','DashboardController@publishersDashboard');
 
-    });
+        });
 
 
         /**

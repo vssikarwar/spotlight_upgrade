@@ -110,7 +110,7 @@ class AffinityCategoriesController extends Controller
         $request->validate([
             'name' => 'required|regex:/^[a-z A-Z]+$/u|max:255',
         ]);
-       
+        
 
         $this->AffinityCategoriesService->update($request, $affinityCategories);
         
