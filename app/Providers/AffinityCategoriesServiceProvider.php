@@ -17,6 +17,8 @@ class AffinityCategoriesServiceProvider extends ServiceProvider
         $this->app->bind('App\Services\AffinityCategoriesService', function ($app) {
             return new AffinityCategoriesService();
           });
+
+          $this->app->bind('App\Repository\AffinityCategoriesRepositoryInterface','App\Repository\AffinityCategoriesRepository');
     }
 
     /**

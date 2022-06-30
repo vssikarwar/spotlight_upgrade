@@ -3,10 +3,15 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Models\Backend\Admin\AffinityCategories;
+use App\Repository\AffinityCategoriesRepositoryInterface;
  
 
 class AffinityCategoriesService
 {
+    public function __construct(AffinityCategoriesRepositoryInterface $AffinityCategoriesRepositoryInterface)
+    {
+        $this->ACRepositoryInterface = $AffinityCategoriesRepositoryInterface;
+    }
 
     public function get() 
     { 
@@ -21,15 +26,9 @@ class AffinityCategoriesService
     public function add($request): void
     {
         $alias = str_replace(' ','-',strtolower(request()->all()['name']));
-        AffinityCategories::create
-        (
-            array_merge
-            (
-                $request->only('parent_id','googleid','name','status'),
-                ['alias' => $alias]
-            )
-        );
-    
+
+        $this->ACRepositoryInterface->saveData($request);
+
     }
 
 
