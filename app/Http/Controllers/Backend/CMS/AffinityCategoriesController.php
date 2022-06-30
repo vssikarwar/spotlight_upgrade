@@ -59,10 +59,10 @@ class AffinityCategoriesController extends Controller
 
     public function export()
     {
+        $fileName = "Affinity-Category_" . date('Y-m-d h-i-s') . ".csv";
+        $affinityCategories = AffinityCategories::all();
 
-         // $fileName = "Affinity-Category_" . date('Y-m-d h-i-s') . ".csv";
-        // $affinityCategories = AffinityCategories::all();
-        // $columns = array('Parent', 'Google Id', 'Name', 'Alias');
+        $columns = array('Parent', 'Google Id', 'Name', 'Alias');
 
 
         // $affinityCategories = $this->AffinityCategories->get();
@@ -116,11 +116,11 @@ class AffinityCategoriesController extends Controller
         
         return redirect()->route('AffinityCategories.index')
             ->withSuccess(__('Post updated successfully.'));
+
     }
 
     public function delete(AffinityCategories $affinityCategories) 
     {
-
         $this->AffinityCategoriesService->delete($affinityCategories);
 
         return redirect()->route('AffinityCategories.index')
