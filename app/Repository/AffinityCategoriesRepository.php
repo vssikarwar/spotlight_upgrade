@@ -7,12 +7,12 @@ class AffinityCategoriesRepository implements AffinityCategoriesRepositoryInterf
 {
     public function saveData($request)
     {
-        // AffinityCategories::create(
-        //     array_merge
-        //     (
-        //         $request->only('parent_id','googleid','name','status'),
-        //         ['alias' => $alias]
-        //     )
-        // );
+        AffinityCategories::create(
+            array_merge
+            (
+                $request->only('parent_id','googleid','name','status'),
+                ['alias' => $alias]
+            )
+        );
     }
 }
