@@ -64,6 +64,23 @@ class AffinityCategoriesController extends Controller
 
         $columns = array('Parent', 'Google Id', 'Name', 'Alias');
 
+        $callback = function() use($affinityCategories, $columns)
+        {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+
+            foreach ($affinityCategories as $affinityCategory)
+            {
+                $row['name']  = $affinityCategory->name;
+            
+                fputcsv($file, array($row['name']));
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200);
+
 
         // $affinityCategories = $this->AffinityCategories->get();
 
@@ -93,7 +110,7 @@ class AffinityCategoriesController extends Controller
         $this->AffinityCategoriesService->statusUpdate($affinityCategories);
 
         return redirect()->route('AffinityCategories.index')
-            ->withSuccess(__('Post updated successfully.'));
+             ->withSuccess(__('Post updated successfully.'));
 
     }
 
