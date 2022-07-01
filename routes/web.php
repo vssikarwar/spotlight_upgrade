@@ -114,17 +114,21 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     
             // Route::get('/publisher-dashboard/{publisher}', );
 
-            Route::get('/affinity-categories', 'AffinityCategoriesController@index')->name('AffinityCategories.index');
-            Route::get('/affinity-categories/add', 'AffinityCategoriesController@add')->name('AffinityCategories.add');
-            Route::post('/affinity-categories/add-data', 'AffinityCategoriesController@addData')->name('AffinityCategories.addData');
+            Route::group(['prefix' => 'affinity-categories'], function() 
+            {
 
-            Route::get('/affinity-categories/import', 'AffinityCategoriesController@import')->name('AffinityCategories.import');
-            Route::get('/affinity-categories/export', 'AffinityCategoriesController@export')->name('AffinityCategories.export');
-            Route::get('/affinity-categories/delete/{affinityCategories}', 'AffinityCategoriesController@delete')->name('AffinityCategories.delete');
-            Route::get('/affinity-categories/delete/{affinityCategories}', 'AffinityCategoriesController@delete')->name('AffinityCategories.delete');
-            Route::get('/affinity-categories/edit/{affinityCategories}', 'AffinityCategoriesController@edit')->name('AffinityCategories.edit');
-            Route::post('/affinity-categories/update/{affinityCategories}', 'AffinityCategoriesController@update')->name('AffinityCategories.update');
-            Route::get('/affinity-categories/status-update/{affinityCategories}', 'AffinityCategoriesController@statusUpdate')->name('AffinityCategories.statusUpdate');
+                Route::get('/', 'AffinityCategoriesController@index')->name('AffinityCategories.index');
+                Route::get('/add', 'AffinityCategoriesController@add')->name('AffinityCategories.add');
+                Route::post('/add-data', 'AffinityCategoriesController@addData')->name('AffinityCategories.addData');
+
+                Route::get('/import', 'AffinityCategoriesController@import')->name('AffinityCategories.import');
+                Route::get('/export', 'AffinityCategoriesController@export')->name('AffinityCategories.export');
+                Route::get('/delete/{affinityCategories}', 'AffinityCategoriesController@delete')->name('AffinityCategories.delete');
+                Route::get('/edit/{affinityCategories}', 'AffinityCategoriesController@edit')->name('AffinityCategories.edit');
+                Route::post('/update/{affinityCategories}', 'AffinityCategoriesController@update')->name('AffinityCategories.update');
+                Route::get('/status-update/{affinityCategories}', 'AffinityCategoriesController@statusUpdate')->name('AffinityCategories.statusUpdate');
+
+            });
 
 
 
@@ -135,8 +139,18 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/customer-pincodes', 'CustomerPincodesController@index')->name('CustomerPincodes.index');
             Route::get('/product-categories', 'ProductCategoriesController@index')->name('ProductCategories.index');
 
-            
-            Route::get('/countries', 'CountriesController@index')->name('Countries.index');
+            Route::group(['prefix' => 'countries'], function()
+            {
+
+                Route::get('/', 'CountriesController@index')->name('Countries.index');
+                Route::get('/add', 'CountriesController@add')->name('Countries.add');
+                Route::get('/edit/{countries}', 'CountriesController@edit')->name('Countries.edit');
+                Route::get('/delete/{countries}', 'CountriesController@delete')->name('Countries.delete');
+
+            });
+
+
+
             Route::get('/states', 'StatesController@index')->name('States.index');
             Route::get('/cities', 'CitiesController@index')->name('Cities.index');
             Route::get('/languages', 'LanguagesController@index')->name('Languages.index');

@@ -46,10 +46,9 @@ class AffinityCategoriesController extends Controller
         $this->AffinityCategoriesService->add($request);
 
 
-        // $affinityCategories = $this->AffinityCategories->addData();
-
         return redirect()->route('AffinityCategories.index')
         ->withSuccess(__('Post created successfully.'));
+
     }
 
     public function import()
@@ -88,19 +87,6 @@ class AffinityCategoriesController extends Controller
         // $largeAction=$this->maxFileArrayLength($affinityCategories);
         // $this->exportCsv($affinityCategories,$largeAction);
 
-    }
-
-    public function exportCsv($data,$largeAction)
-    {
-
-        // $fields = array('Parent', 'Google Id', 'Name', 'Alias');
-        
-        // $delimiter = ","; 
-        // //for file name 
-        // $filename = "Affinity-Category_" . date('Y-m-d h-i-s') . ".csv";
-        // // file path for save
-        // $f = fopen(WWW_ROOT.'files/'.$filename,'w'); 
-      
     }
 
 

@@ -90,29 +90,5 @@
     </div>
 </section>
 
-                </div>
-            <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-        <b>Version</b> 2.3.11
-    </div>
-    <strong>Copyright &copy; 2022 <a href="http://www.singleinterface.com">Singleinterface</a>.</strong> All rights
-    reserved.
-</footer>
-<script>
-           // saveBrowsingLogs();
-            function saveBrowsingLogs(){
-                var url = '/affinity-categories/edit/2';
-                var queryString = "url="+url;
-                  jQuery.ajax({
-                                    type: "POST",
-                                    url: 'https://testing.myspotlight.co/ajax/save-browsing-logs',
-                                    data: queryString,     
-                                          
-                                    success: function(data){                
-            }
-        });
-
-    }
-</script>
-
+            
 @endsection
