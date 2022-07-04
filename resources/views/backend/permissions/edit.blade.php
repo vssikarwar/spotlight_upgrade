@@ -2,19 +2,28 @@
 
 @section('main-container')
 
-    <div class="bg-light p-4 rounded">
-        <h2>Edit permission</h2>
-        <div class="lead">
-            Editing permission.
-        </div>
+<a href="{{ route('permissions.index') }}" class="btn btn-success">List Permissions</a>    
+</section>
 
-        <div class="container mt-4">
+<section class="content"> 
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body"> 
 
-            <form method="POST" action="{{ route('permissions.update', $permission->id) }}">
-                @method('patch')
-                @csrf
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
+                <form class="form" action="{{ route('permissions.update', $permission->id) }}" method="POST">
+                        {{@csrf_field()}}
+                        @method('patch')
+                        <fieldset>  
+                            
+                        <legend>Add Permissions</legend>
+
+
+                
+                <div class="box-body">
+                        <div class="form-group ">
+                    <label for="name" class="control-label required">Name</label>
+
                     <input value="{{ $permission->name }}" 
                         type="text" 
                         class="form-control" 
@@ -25,6 +34,7 @@
                         <span class="text-danger text-left">{{ $errors->first('name') }}</span>
                     @endif
                 </div>
+                </div>
 
                 <button type="submit" class="btn btn-primary">Save permission</button>
                 <a href="{{ route('permissions.index') }}" class="btn btn-default">Back</a>
@@ -32,4 +42,6 @@
         </div>
 
     </div>
+    </div>
+</div>
 @endsection
