@@ -3,10 +3,18 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Models\Backend\Admin\AffinityCategories;
+use App\Repository\AffinityCategoriesRepositoryInterface;
  
 
-class AffinityCategoriesService
+class AffinityCategoriesService 
 {
+
+    public function __construct(AffinityCategoriesRepositoryInterface $AffinityCategoriesRepositoryInterface)
+    {
+            $this->ACRepositoryInterface = $AffinityCategoriesRepositoryInterface;
+    }
+
+ 
 
     public function get() 
     { 
@@ -14,22 +22,19 @@ class AffinityCategoriesService
         $result = AffinityCategories::rightJoin('affinity_categories as p', 'affinity_categories.id', '=', 'p.parent_id')
         ->select('p.id', 'affinity_categories.googleid', 'p.name', 'p.alias', 'p.status', 'affinity_categories.name as parent')
         ->paginate(15);
+
+        // $this->ACRepositoryInterface->get();
+
         return $result;
     
     } 
     
-    public function add($request): void
+    public function add($request): void 
     {
         $alias = str_replace(' ','-',strtolower(request()->all()['name']));
-        AffinityCategories::create
-        (
-            array_merge
-            (
-                $request->only('parent_id','googleid','name','status'),
-                ['alias' => $alias]
-            )
-        );
-    
+
+        $this->ACRepositoryInterface->saveData($request, $alias);
+
     }
 
 
@@ -45,12 +50,8 @@ class AffinityCategoriesService
         $status = 1;
       }
 
-        // $result = $affinityCategories->update(['status' => $status]);
+      $this->ACRepositoryInterface->updateStatus($affinityCategories, $status);
 
-        AffinityCategories::where('id', $affinityCategories['id'])
-        ->update([
-            'status' => $status
-         ]);
 
     }
 
@@ -64,10 +65,9 @@ class AffinityCategoriesService
     {
         //echo "<pre>";print_r(request()->all());die;
         $alias = str_replace(' ','-',strtolower(request()->all()['name']));
-        $result = $affinityCategories->update((array_merge(
-            $request->only('name','status'),
-            ['alias' => $alias]
-        ))); 
+
+        $this->ACRepositoryInterface->update($request, $affinityCategories, $alias);
+
     }
 
 } 

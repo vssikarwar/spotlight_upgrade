@@ -46,10 +46,9 @@ class AffinityCategoriesController extends Controller
         $this->AffinityCategoriesService->add($request);
 
 
-        // $affinityCategories = $this->AffinityCategories->addData();
-
         return redirect()->route('AffinityCategories.index')
         ->withSuccess(__('Post created successfully.'));
+
     }
 
     public function import()
@@ -64,6 +63,23 @@ class AffinityCategoriesController extends Controller
 
         $columns = array('Parent', 'Google Id', 'Name', 'Alias');
 
+        $callback = function() use($affinityCategories, $columns)
+        {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+
+            foreach ($affinityCategories as $affinityCategory)
+            {
+                $row['name']  = $affinityCategory->name;
+            
+                fputcsv($file, array($row['name']));
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200);
+
 
         // $affinityCategories = $this->AffinityCategories->get();
 
@@ -73,19 +89,6 @@ class AffinityCategoriesController extends Controller
 
     }
 
-    public function exportCsv($data,$largeAction)
-    {
-
-        // $fields = array('Parent', 'Google Id', 'Name', 'Alias');
-        
-        // $delimiter = ","; 
-        // //for file name 
-        // $filename = "Affinity-Category_" . date('Y-m-d h-i-s') . ".csv";
-        // // file path for save
-        // $f = fopen(WWW_ROOT.'files/'.$filename,'w'); 
-      
-    }
-
 
     public function statusUpdate(AffinityCategories $affinityCategories)
     {
@@ -93,7 +96,7 @@ class AffinityCategoriesController extends Controller
         $this->AffinityCategoriesService->statusUpdate($affinityCategories);
 
         return redirect()->route('AffinityCategories.index')
-            ->withSuccess(__('Post updated successfully.'));
+             ->withSuccess(__('Post updated successfully.'));
 
     }
 
@@ -110,7 +113,7 @@ class AffinityCategoriesController extends Controller
         $request->validate([
             'name' => 'required|regex:/^[a-z A-Z]+$/u|max:255',
         ]);
-       
+        
 
         $this->AffinityCategoriesService->update($request, $affinityCategories);
         
