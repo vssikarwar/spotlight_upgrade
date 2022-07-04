@@ -14,6 +14,7 @@ class CountriesServiceProvider extends ServiceProvider
          *
          * @return void
          */
+        
         $this->app->bind('App\Services\CountriesService');    
         $this->app->bind('App\Repository\CountriesRepositoryInterface','App\Repository\CountriesRepository');
     }
@@ -27,6 +28,5 @@ class CountriesServiceProvider extends ServiceProvider
     {
         //
     }
-
 
 }
