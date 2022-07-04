@@ -23,4 +23,9 @@ class CitiesController extends Controller
         return view('backend.dashboards.admin.cities.index', compact('cities'));
        
     }
+
+    public function add()
+    {
+        return view('backend.dashboards.admin.cities.add');
+    }
 }

@@ -153,6 +153,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
             Route::get('/states', 'StatesController@index')->name('States.index');
             Route::get('/cities', 'CitiesController@index')->name('Cities.index');
+            Route::get('/cities/add', 'CitiesController@add')->name('Cities.add');
+
+
             Route::get('/languages', 'LanguagesController@index')->name('Languages.index');
             Route::get('/country-language-mapping', 'CountryLanguageMappingController@index')->name('CountryLanguageMapping.index');
             Route::get('/time-zones', 'TimeZonesController@index')->name('TimeZones.index');

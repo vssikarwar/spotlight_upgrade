@@ -3,16 +3,22 @@
 @section('main-container') 
 
 
-      <a href="/countries/add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>     
+      <a href="/cities/add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>     
  </section>
 	 <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Countries</h3>
+              <h3 class="box-title">Cities</h3>
             </div>
-            <!-- /.box-header -->
+
+            
+            <div class="col-md-2 marginTop25 active">
+            <div class="input select"><label for="state">State</label><select name="state" class="form-control" placeholder="please Select" id="state"><option value="">please Select</option><option value="1">Delhi</option><option value="2">Uttar Pradesh</option><option value="3">Haryana</option><option value="4">Andaman &amp; Nicobar Islands</option><option value="5">Andhra Pradesh</option><option value="6">Arunachal Pradesh</option><option value="7">Assam</option><option value="8">Bihar</option><option value="9">Chandigarh</option><option value="10">Chattisgarh</option><option value="11">Dadra &amp; Nagar Haveli</option><option value="12">Daman &amp; Diu</option><option value="13">Goa</option><option value="14">Gujarat</option><option value="15">Himachal Pradesh</option><option value="16">Jammu &amp; Kashmir</option><option value="17">Jharkhand</option><option value="18">Karnataka</option><option value="19">Kerala</option><option value="20">Lakshadweep</option><option value="21">Madhya Pradesh</option><option value="22">Maharashtra</option><option value="23">Manipur</option><option value="24">Meghalaya</option><option value="25">Mizoram</option><option value="26">Nagaland</option><option value="27">Orissa</option><option value="28">Pondicherry</option><option value="29">Punjab</option><option value="30">Rajasthan</option><option value="31">Sikkim</option><option value="32">Tamil Nadu</option><option value="33">Tripura</option><option value="34">Uttarakhand</option><option value="35">West Bengal</option><option value="36">Telangana</option><option value="37">Odisha</option><option value="38">Chhattisgarh</option></select><small class="text text-danger" style="display: none;"></small></div>
+                        <br>                      
+                <button class="btn btn-primary" type="submit">Search</button>                <a href="/cities" class="btn btn-danger">Reset</a>                    </div>
+                <!-- /.box-header -->
             <div class="box-body"><table id="example2" class="table table-bordered table-hover">
                 <thead>
 
@@ -20,13 +26,13 @@
 
                   <tr>
 
-                    <th scope="col"><a href="/countries?direction=asc&amp;sort=id">Id</a></th>
+                    <th scope="col"><a href="/cities?direction=asc&amp;sort=id">Id</a></th>
                     <th scope="col" class="actions">Actions</th>
-                    <th scope="col"><a href="/countries?direction=asc&amp;sort=name">Name</a></th>
-                    <th scope="col"><a href="/countries?direction=asc&amp;sort=iso_alpha_2">Iso Alpha 2</a></th>
+                    <th scope="col"><a href="/cities?direction=asc&amp;sort=name">Name</a></th>
+                    <th scope="col"><a href="/cities?direction=asc&amp;sort=iso_alpha_2">Iso Alpha 2</a></th>
                     
-                    <th scope="col"><a href="/countries?direction=asc&amp;sort=shopping_ads">Shopping Ads</a></th>
-                    <th scope="col"><a href="/countries?direction=asc&amp;sort=active">Active</a></th>
+                    <th scope="col"><a href="/cities?direction=asc&amp;sort=shopping_ads">Shopping Ads</a></th>
+                    <th scope="col"><a href="/cities?direction=asc&amp;sort=active">Active</a></th>
                   
                   </tr>
                 </thead>
@@ -38,7 +44,7 @@
 
                 <tr>
                         <td>{{ $city->id }}</td>
-                        <!-- <td><a href="/countries/view/104">India</a></td> -->
+                        <!-- <td><a href="/cities/view/104">India</a></td> -->
                         <td>Central Delhi</td>
                         <td>{{ $city->name }}</td>
                         
