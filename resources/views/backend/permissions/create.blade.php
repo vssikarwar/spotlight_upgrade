@@ -1,27 +1,36 @@
-@extends('backend.layouts.app-master')
+@extends('backend.dashboards.admin.layouts.main')
 
-@section('content')
-    <div class="bg-light p-4 rounded">
-        <h2>Add new permission</h2>
-        <div class="lead">
-            Add new permission.
-        </div>
+@section('main-container')
 
-        <div class="container mt-4">
+        <a href="{{ route('permissions.index') }}" class="btn btn-success">List Permissions</a>    
+</section>
 
-            <form method="POST" action="{{ route('permissions.store') }}">
-                @csrf
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input value="{{ old('name') }}" 
-                        type="text" 
-                        class="form-control" 
-                        name="name" 
-                        placeholder="Name" required>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">                                        
+                    <form class="form" action="{{ route('permissions.store')}}" method="POST">
+                        {{@csrf_field()}}
+                        <fieldset>  
+                            
+                        <legend>Add Permissions</legend>
 
-                    @if ($errors->has('name'))
-                        <span class="text-danger text-left">{{ $errors->first('name') }}</span>
-                    @endif
+                        <div class="box-body">
+                        <div class="form-group ">
+                                <label class="control-label required">Name</label>
+                                <div class="input text"><input type="text" name="name" class="form-control" maxlength="255" value="{{ old('name') }}" id="affinitycategories-name"/></div> 
+                                @if ($errors->has('name'))
+
+                                <small class="text text-danger" style="display: inline-block;">
+
+                                    <span class="text-danger text-left">{{ $errors->first('name') }}</span>
+
+                                </small>
+
+                                @endif                           
+                        </div> 
+
                 </div>
 
                 <button type="submit" class="btn btn-primary">Save permission</button>
@@ -30,4 +39,7 @@
         </div>
 
     </div>
+    </div>
+</div>
+
 @endsection

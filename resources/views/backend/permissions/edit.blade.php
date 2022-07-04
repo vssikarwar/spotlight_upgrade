@@ -1,6 +1,7 @@
-@extends('backend.layouts.app-master')
+@extends('backend.dashboards.admin.layouts.main')
 
-@section('content')
+@section('main-container')
+
     <div class="bg-light p-4 rounded">
         <h2>Edit permission</h2>
         <div class="lead">
