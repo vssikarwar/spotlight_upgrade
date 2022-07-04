@@ -6,7 +6,7 @@ use App\Models\Backend\Admin\AffinityCategories;
 use App\Repository\AffinityCategoriesRepositoryInterface;
  
 
-class AffinityCategoriesService
+class AffinityCategoriesService 
 {
 
     public function __construct(AffinityCategoriesRepositoryInterface $AffinityCategoriesRepositoryInterface)
@@ -29,7 +29,7 @@ class AffinityCategoriesService
     
     } 
     
-    public function add($request): void
+    public function add($request): void 
     {
         $alias = str_replace(' ','-',strtolower(request()->all()['name']));
 

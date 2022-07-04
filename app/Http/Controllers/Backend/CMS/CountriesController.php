@@ -33,9 +33,10 @@ class CountriesController extends Controller
     {
 
         $request->validate([
-            'name' => 'required|regex:/^[a-z A-Z]+$/u|max:55',
-            'googleid' => 'required',
-            'parent_id'=> 'required',
+            'Countries[name]' => 'required|regex:/^[a-z A-Z]+$/u|max:55',
+            'Countries[iso_alpha_2]' => 'required|regex:/^[a-z A-Z]+$/u|max:2',
+            'Countries[iso_alpha_3]' => 'required|regex:/^[a-z A-Z]+$/u|max:3',
+            'Countries[iso_numeric]'=> 'required',
         ]);
         
 

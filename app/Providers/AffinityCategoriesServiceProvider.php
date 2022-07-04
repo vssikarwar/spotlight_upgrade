@@ -8,7 +8,7 @@ use App\Services\AffinityCategoriesService;
 class AffinityCategoriesServiceProvider extends ServiceProvider
 {
     /**
-     * Register services.
+     * Register services. 
      *
      * @return void
      */

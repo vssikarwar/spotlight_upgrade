@@ -11,10 +11,17 @@ class CountriesService
     public function get() 
     { 
         
-          return Countries::paginate(10);
+          return Countries::paginate(10);  
     
         
     } 
+
+    public function add($request): void 
+    {
+
+        $this->ACRepositoryInterface->saveData($request);
+
+    }
     
  
 } 
