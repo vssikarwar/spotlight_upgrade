@@ -1,11 +1,17 @@
-@extends('backend.layouts.app-master')
+@extends('backend.dashboards.admin.layouts.main')
 
-@section('content')
-    <div class="bg-light p-4 rounded">
-        <h1>Add new role</h1>
-        <div class="lead">
-            Add new role and assign permissions.
-        </div>
+@section('main-container') 
+
+<a href="{{ route('roles.index') }}" class="btn btn-primary">List Permissions</a>     
+
+    </section>
+
+    
+    <section class="content"> 
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body"> 
 
         <div class="container mt-4">
 
@@ -29,15 +35,16 @@
                         class="form-control" 
                         name="name" 
                         placeholder="Name" required>
+                        
                 </div>
                 
                 <label for="permissions" class="form-label">Assign Permissions</label>
 
                 <table class="table table-striped">
                     <thead>
-                        <th scope="col" width="1%"><input type="checkbox" name="all_permission"></th>
-                        <th scope="col" width="20%">Name</th>
-                        <th scope="col" width="1%">Guard</th> 
+                        <th scope="col" ><input type="checkbox" name="all_permission"></th>
+                        <th scope="col" >Name</th>
+                        <th scope="col" >Guard</th> 
                     </thead>
 
                     @foreach($permissions as $permission)
@@ -54,30 +61,15 @@
                     @endforeach
                 </table>
 
+                </div>
+
                 <button type="submit" class="btn btn-primary">Save user</button>
                 <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
             </form>
         </div>
 
     </div>
+    </div>
+</div>
 @endsection
 
-@section('scripts')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('[name="all_permission"]').on('click', function() {
-
-                if($(this).is(':checked')) {
-                    $.each($('.permission'), function() {
-                        $(this).prop('checked',true);
-                    });
-                } else {
-                    $.each($('.permission'), function() {
-                        $(this).prop('checked',false);
-                    });
-                }
-                
-            });
-        });
-    </script>
-@endsection

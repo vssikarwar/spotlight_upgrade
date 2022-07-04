@@ -45,11 +45,12 @@
 
             </tbody>
         </table>
-        </div>
+       
 
         <div class="paginator">
             <ul class="pagination">
             {!! $roles->links() !!}
+        </div>
         </div>
 
    
