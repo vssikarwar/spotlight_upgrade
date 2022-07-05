@@ -146,7 +146,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
                 Route::get('/add', 'CountriesController@add')->name('Countries.add');
                 Route::post('/add', 'CountriesController@addData')->name('Countries.addData');
                 Route::get('/edit/{countries}', 'CountriesController@edit')->name('Countries.edit');
-                Route::get('/delete/{countries}', 'CountriesController@delete')->name('Countries.delete');
+                Route::post('/update/{countries}', 'CountriesController@editData')->name('Countries.editData');
+                Route::get('/delete/{countries}', 'CountriesController@deleteData')->name('Countries.delete');
+                Route::get('/status-update/{countries}', 'CountriesController@statusUpdate')->name('Countries.statusUpdate');
+
 
             });
 

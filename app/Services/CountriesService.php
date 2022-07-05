@@ -27,6 +27,36 @@ class CountriesService
         $this->CountriesInterface->saveData($request);
 
     }
-    
+
+    public function delete($countries) 
+    {
+       $result = $countries->delete();
+
+    }
+
+    public function statusUpdate($countries)
+    {
+      if($countries['active'] == 1)
+      {
+        $status = 0;
+      }
+      else
+      {
+        $status = 1;
+      }
+
+      $this->CountriesInterface->updateStatus($countries, $status);
+
+
+    }
+
+    public function update($request, $countries)
+    {
+        // echo "<pre>";print_r(request()->all());die;
+
+        $this->CountriesInterface->update($request, $countries);
+
+    }
+     
  
 } 

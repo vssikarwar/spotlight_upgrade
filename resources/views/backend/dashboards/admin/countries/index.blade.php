@@ -23,7 +23,7 @@
                     <th scope="col"><a href="/countries?direction=asc&amp;sort=iso_alpha_2">Iso Alpha 2</a></th>
                     
                     <th scope="col"><a href="/countries?direction=asc&amp;sort=shopping_ads">Shopping Ads</a></th>
-                    <th scope="col"><a href="/countries?direction=asc&amp;sort=active">Active</a></th>
+                    <th scope="col"><a href="/countries?direction=asc&amp;sort=active">Status</a></th>
                   
                   </tr>
                 </thead>
@@ -52,7 +52,7 @@
                 <td>
 
                   <?php
-                      if($country->status == 1)
+                      if($country->active == 1)
                       {
                   ?>
                   <a href="/countries/status-update/{{$id}}" class="label label-success" onclick="if (confirm(&quot;Are you sure you want to update status of #{{$id}} ?&quot;)) { document.post_62a194d0c3998911570236.submit(); } event.returnValue = false; return false;" >Active</a>
