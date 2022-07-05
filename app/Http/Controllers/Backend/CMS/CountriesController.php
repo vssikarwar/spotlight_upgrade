@@ -33,10 +33,12 @@ class CountriesController extends Controller
     {
 
         $request->validate([
-            'Countries[name]' => 'required|regex:/^[a-z A-Z]+$/u|max:55',
-            'Countries[iso_alpha_2]' => 'required|regex:/^[a-z A-Z]+$/u|max:2',
-            'Countries[iso_alpha_3]' => 'required|regex:/^[a-z A-Z]+$/u|max:3',
-            'Countries[iso_numeric]'=> 'required',
+            'name'        => 'required|regex:/^[a-z A-Z]+$/u|max:100',
+            'iso_alpha_2' => 'required|regex:/^[a-zA-Z]+$/u|max:2',
+            'iso_alpha_3' => 'required|regex:/^[a-zA-Z]+$/u|max:3',
+            'iso_numeric' => 'max:5',
+            'dailing_code'=> 'max:6',
+            'currency'    => 'max:10',
         ]);
         
 

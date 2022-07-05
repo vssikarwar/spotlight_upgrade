@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repository;
 
 interface CountriesRepositoryInterface
@@ -9,7 +10,7 @@ interface CountriesRepositoryInterface
 
     public function update($request, $affinityCategories, $alias);
 
-    public function get();
+    public function get(); 
 
 
 }

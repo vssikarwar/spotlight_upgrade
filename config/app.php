@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\EnvatoCustomServiceProvider::class,
         App\Providers\AffinityCategoriesServiceProvider::class,
+        App\Providers\CMSServiceProvider::class,
 
     ],
 

@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Services\CountriesService;
 
-class CountriesServiceProvider extends ServiceProvider
+class CMSServiceProvider extends ServiceProvider
 {
     public function register()
     {

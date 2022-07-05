@@ -3,10 +3,15 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Models\Countries;
-
+use App\Repository\CountriesRepositoryInterface;
 
 class CountriesService
 {
+
+    public function __construct(CountriesRepositoryInterface $CountriesRepositoryInterface)
+    {
+            $this->CountriesInterface = $CountriesRepositoryInterface;
+    }
 
     public function get() 
     { 
@@ -16,10 +21,10 @@ class CountriesService
         
     } 
 
-    public function add($request): void 
+    public function add($request) 
     {
 
-        $this->ACRepositoryInterface->saveData($request);
+        $this->CountriesInterface->saveData($request);
 
     }
     
