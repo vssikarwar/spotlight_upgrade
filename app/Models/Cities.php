@@ -9,10 +9,13 @@ class Cities extends Model
 {
     use HasFactory;
 
-    protected $table = 'cities';
+        protected $table = 'cities';
 
-    public const CREATED_AT = 'created';
-    public const UPDATED_AT = 'modified';
+        const UPDATED_AT = null;
+        const CREATED_AT = null;
 
-    protected $primaryKey = 'id';
+        protected $guarded=[];
+
+
+        protected $primaryKey = 'id';
 }

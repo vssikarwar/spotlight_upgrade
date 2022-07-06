@@ -19,9 +19,9 @@
                     <tr>
                     <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=id">Id</a></th>
                     <th scope="col" class="actions">Actions</th>
-                    <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=parent_id">Parent</a></th>
                     <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=googleid">Googleid</a></th>
                     <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=name">Name</a></th>
+                    <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=parent_id">Parent</a></th>
                     <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=alias">Alias</a></th>
                     <th scope="col"><a href="/affinity-categories?direction=asc&amp;sort=status">Status</a></th>
 
@@ -48,9 +48,9 @@
         <?php $id = $affinityCategory->id;?>
 
 
-        <td><a>{{$affinityCategory->parent}}</a></td>
         <td>{{ $affinityCategory->googleid }}</td>
         <td>{{ $affinityCategory->name }}</td>
+        <td><a>{{$affinityCategory->parent}}</a></td>
         <td>{{ $affinityCategory->alias }}</td>
 
         <td>
@@ -80,7 +80,7 @@
 
         <div class="paginator">
             <ul class="pagination">
-            {!! $affinityCategories->links() !!}
+            {!! $affinityCategories->links() !!} 
             <p>Page  of , showing  record(s) out of  total</p>
         </div>
         </div>

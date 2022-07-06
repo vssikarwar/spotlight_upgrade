@@ -15,17 +15,18 @@
                     <form class="form" action="{{ route('AffinityCategories.addData')}}" method="POST">
                         {{@csrf_field()}}
                         <fieldset>
+            
                         <legend>Add Affinity Category</legend>
                         <div class="box-body">
                             <div class="form-group ">
                                 <label class="control-label">Parent Category</label>
-                                <div class="input select"><select name="parent_id" class="form-control" id="affinitycategories-parent-id">
+                                <div class="input select"><select name="parent_id" class="form-control" value="{{ old('parent_id') }}"  id="affinitycategories-parent-id">
                                     <option value="">---SELECT---</option>
                                     <option value="3">Beauty &amp; Wellness</option>
                                     <option value="4">Beauty &amp; Wellness / Beauty Mavens</option>
                                     <option value="5">Beauty &amp; Wellness / Frequently Visits Salons</option>
                                     <option value="6">Food &amp; Dining</option>
-                                    <option value="21">Food &amp; Dining / Coffee Shop Regulars</option>
+                                    <!-- <option value="21">Food &amp; Dining / Coffee Shop Regulars</option>
                                     <option value="22">Food &amp; Dining / Cooking Enthusiasts</option>
                                     <option value="23">Food &amp; Dining / Cooking Enthusiasts / 30 Minute Chefs</option>
                                     <option value="24">Food &amp; Dining / Cooking Enthusiasts / Aspiring Chefs</option>
@@ -45,16 +46,44 @@
                                     <option value="2">News &amp; Politics / News Junkies / Local News Junkies / Avid Investors</option>
                                     <option value="19">News &amp; Politics / News Junkies / Men&#039;s Media Fans</option>
                                     <option value="11">Shoppers</option><option value="12">Sports &amp; Fitness</option>
-                                    <option value="13">Technology</option><option value="14">Travel</option>
+                                    <option value="13">Technology</option><option value="14">Travel</option> -->
                                 </select>
+
+                                @if ($errors->has('parent_id'))
+
+                                    <small class="text text-danger" style="display: inline-block;">
+
+                                        <span class="text-danger text-left">{{ $errors->first('parent_id') }}</span>
+
+                                    </small>
+
+                                @endif
                             </div>                            </div>
                             <div class="form-group ">
                                 <label class="control-label required">Name</label>
-                                <div class="input text"><input type="text" name="name" class="form-control" maxlength="255" id="affinitycategories-name"/></div>                            
+                                <div class="input text"><input type="text" name="name" class="form-control" maxlength="255" value="{{ old('name') }}" id="affinitycategories-name"/></div> 
+                                @if ($errors->has('name'))
+
+                                <small class="text text-danger" style="display: inline-block;">
+
+                                    <span class="text-danger text-left">{{ $errors->first('name') }}</span>
+
+                                </small>
+
+                                @endif                           
                             </div>                                                  
                             <div class="form-group ">
                                 <label class="control-label required">Googleid</label>
-                                 <div class="input number"><input type="number" name="googleid" class="form-control" id="affinitycategories-googleid"/></div>                            
+                                 <div class="input number"><input type="number" name="googleid" class="form-control" value="{{ old('googleid') }}" id="affinitycategories-googleid"/></div>
+                                 @if ($errors->has('googleid'))
+
+                                    <small class="text text-danger" style="display: inline-block;">
+
+                                        <span class="text-danger text-left">{{ $errors->first('googleid') }}</span>
+
+                                    </small>
+
+                                @endif                              
                             </div>
                             <div class="form-group ">                                
                                 <div class="input checkbox"><input type="hidden" name="status" value="0"/>

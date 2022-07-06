@@ -24,4 +24,6 @@ class CountryLanguageMappingController extends Controller
         return view('backend.dashboards.admin.countryLanguageMapping.index', compact('countryLanguageMapping'));
        
     }
+
+    
 }

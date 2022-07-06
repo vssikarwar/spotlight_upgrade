@@ -96,35 +96,45 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::group(['namespace' => 'Users'], function()
         {
             Route::group(['prefix' => 'users'], function() {
-                Route::get('/listOfCustomers', 'UsersController@index')->name('users.index');
+                Route::get('/listOfCustomers', 'CustomerController@index')->name('users.index');
+                Route::post('/linked-accounts', 'CustomerController@linkedAccount')->name('users.index');
                 Route::get('/', 'UsersController@index')->name('users.index');
-
-
                 Route::get('/create', 'UsersController@create')->name('users.create');
                 Route::post('/create', 'UsersController@store')->name('users.store');
                 Route::get('/{user}/show', 'UsersController@show')->name('users.show');
                 Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
                 Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
                 Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
+
             });
+
+            Route::get('/adwordsLogin','GoogleController@getAuthUrl');
+            Route::get('/google/callback/{code?}', 'GoogleController@googleCallBack');
+
+
+
         });
 
         Route::group(['namespace' => 'CMS'], function() 
         {
     
             // Route::get('/publisher-dashboard/{publisher}', );
-            
-            Route::get('/affinity-categories', 'AffinityCategoriesController@index')->name('AffinityCategories.index');
-            Route::get('/affinity-categories/add', 'AffinityCategoriesController@add')->name('AffinityCategories.add');
-            Route::post('/affinity-categories/add-data', 'AffinityCategoriesController@addData')->name('AffinityCategories.addData');
 
-            Route::get('/affinity-categories/import', 'AffinityCategoriesController@import')->name('AffinityCategories.import');
-            Route::get('/affinity-categories/export', 'AffinityCategoriesController@export')->name('AffinityCategories.export');
-            Route::get('/affinity-categories/delete/{affinityCategories}', 'AffinityCategoriesController@delete')->name('AffinityCategories.delete');
-            Route::get('/affinity-categories/delete/{affinityCategories}', 'AffinityCategoriesController@delete')->name('AffinityCategories.delete');
-            Route::get('/affinity-categories/edit/{affinityCategories}', 'AffinityCategoriesController@edit')->name('AffinityCategories.edit');
-            Route::post('/affinity-categories/update/{affinityCategories}', 'AffinityCategoriesController@update')->name('AffinityCategories.update');
-            Route::get('/affinity-categories/status-update/{affinityCategories}', 'AffinityCategoriesController@statusUpdate')->name('AffinityCategories.statusUpdate');
+            Route::group(['prefix' => 'affinity-categories'], function() 
+            {
+
+                Route::get('/', 'AffinityCategoriesController@index')->name('AffinityCategories.index');
+                Route::get('/add', 'AffinityCategoriesController@add')->name('AffinityCategories.add');
+                Route::post('/add-data', 'AffinityCategoriesController@addData')->name('AffinityCategories.addData');
+
+                Route::get('/import', 'AffinityCategoriesController@import')->name('AffinityCategories.import');
+                Route::get('/export', 'AffinityCategoriesController@export')->name('AffinityCategories.export');
+                Route::get('/delete/{affinityCategories}', 'AffinityCategoriesController@delete')->name('AffinityCategories.delete');
+                Route::get('/edit/{affinityCategories}', 'AffinityCategoriesController@edit')->name('AffinityCategories.edit');
+                Route::post('/update/{affinityCategories}', 'AffinityCategoriesController@update')->name('AffinityCategories.update');
+                Route::get('/status-update/{affinityCategories}', 'AffinityCategoriesController@statusUpdate')->name('AffinityCategories.statusUpdate');
+
+            });
 
 
 
@@ -135,10 +145,31 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/customer-pincodes', 'CustomerPincodesController@index')->name('CustomerPincodes.index');
             Route::get('/product-categories', 'ProductCategoriesController@index')->name('ProductCategories.index');
 
-            
-            Route::get('/countries', 'CountriesController@index')->name('Countries.index');
+            Route::group(['prefix' => 'countries'], function()
+            {
+
+                Route::get('/', 'CountriesController@index')->name('Countries.index');
+                Route::get('/add', 'CountriesController@add')->name('Countries.add');
+                Route::get('/edit/{countries}', 'CountriesController@edit')->name('Countries.edit');
+                Route::get('/delete/{countries}', 'CountriesController@delete')->name('Countries.delete');
+
+            });
+
+
+
             Route::get('/states', 'StatesController@index')->name('States.index');
             Route::get('/cities', 'CitiesController@index')->name('Cities.index');
+            Route::get('/cities/delete/{cities}', 'CitiesController@delete')->name('Cities.delete');
+            Route::get('/cities/add', 'CitiesController@add')->name('Cities.add');
+            Route::get('/cities/edit/{cities}', 'CitiesController@edit')->name('Cities.edit');
+            Route::post('/cities/update/{cities}', 'CitiesController@update')->name('Cities.update');
+            Route::post('/cities/add-cities', 'CitiesController@addCities')->name('Cities.addCities');
+            Route::get('/cities/cities-filer', 'CitiesController@filter')->name('Cities.filter');
+
+
+   
+
+
             Route::get('/languages', 'LanguagesController@index')->name('Languages.index');
             Route::get('/country-language-mapping', 'CountryLanguageMappingController@index')->name('CountryLanguageMapping.index');
             Route::get('/time-zones', 'TimeZonesController@index')->name('TimeZones.index');
@@ -152,13 +183,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         });
 
         Route::group(['prefix' => 'publishers'], function() 
-    {
+     {
 
         Route::get('/{publisher}/edit', 'DashboardController@edit')->name('publishers.edit');
         Route::get('/', 'DashboardController@publishers')->name('dashboard.publishers');
         Route::get('/publisher-dashboard/{publisher}','DashboardController@publishersDashboard');
 
-    });
+        });
 
 
         /**
