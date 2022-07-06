@@ -154,8 +154,21 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             });
 
 
+            Route::group(['prefix' => 'states'], function()
+            {
 
-            Route::get('/states', 'StatesController@index')->name('States.index');
+                Route::get('/', 'StatesController@index')->name('States.index');
+                Route::get('/add', 'StatesController@add')->name('States.add');
+                Route::post('/add', 'StatesController@addData')->name('States.addData');
+                Route::get('/edit/{states}', 'StatesController@edit')->name('States.edit');
+                Route::post('/update/{states}', 'StatesController@editData')->name('States.editData');
+                Route::get('/delete/{states}', 'StatesController@deleteData')->name('States.delete');
+                Route::get('/status-update/{states}', 'StatesController@statusUpdate')->name('States.statusUpdate');
+
+
+            });
+
+
             Route::get('/cities', 'CitiesController@index')->name('Cities.index');
             Route::get('/cities/add', 'CitiesController@add')->name('Cities.add');
 

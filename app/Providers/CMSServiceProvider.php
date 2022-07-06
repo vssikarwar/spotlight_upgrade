@@ -16,6 +16,10 @@ class CMSServiceProvider extends ServiceProvider
          */
         $this->app->bind('App\Services\CountriesService');    
         $this->app->bind('App\Repository\CountriesRepositoryInterface','App\Repository\CountriesRepository');
+
+        $this->app->bind('App\Services\StatesService');    
+        $this->app->bind('App\Repository\StatesRepositoryInterface','App\Repository\StatesRepository');
+   
     }
 
     /**

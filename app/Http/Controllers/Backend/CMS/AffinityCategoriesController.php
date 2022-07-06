@@ -47,7 +47,7 @@ class AffinityCategoriesController extends Controller
 
 
         return redirect()->route('AffinityCategories.index')
-        ->withSuccess(__('Post created successfully.'));
+        ->withSuccess(__('Affinity Categories created successfully.'));
 
     }
 

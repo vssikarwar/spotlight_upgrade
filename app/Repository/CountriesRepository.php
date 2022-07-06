@@ -7,8 +7,7 @@ class CountriesRepository implements CountriesRepositoryInterface
 {
     public function get()
     {
-         
-
+        return Countries::paginate(10);
     }
 
 

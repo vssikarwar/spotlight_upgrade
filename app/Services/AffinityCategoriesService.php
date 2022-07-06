@@ -41,6 +41,7 @@ class AffinityCategoriesService
 
     public function statusUpdate($affinityCategories)
     {
+      
       if($affinityCategories['status'] == 1)
       {
         $status = 0;
@@ -68,6 +69,6 @@ class AffinityCategoriesService
 
         $this->ACRepositoryInterface->update($request, $affinityCategories, $alias);
 
-    }
+    } 
 
 } 

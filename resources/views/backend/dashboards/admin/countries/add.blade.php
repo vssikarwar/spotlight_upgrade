@@ -3,7 +3,7 @@
 
 @section('main-container') 
 
-<a href="/affinity-categories" class="btn btn-success">List Affinity Categories</a>    
+<a href="/countries" class="btn btn-success">List Countries</a>    
 </section>
 	
 	

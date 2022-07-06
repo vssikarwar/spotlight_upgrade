@@ -48,7 +48,7 @@ class CountriesController extends Controller
 
 
         return redirect()->route('Countries.index')
-        ->withSuccess(__('Post created successfully.'));
+        ->withSuccess(__('Country created successfully.'));
 
     }
 
