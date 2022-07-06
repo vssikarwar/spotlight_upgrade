@@ -2,6 +2,7 @@
 namespace App\Repository;
 
 use App\Models\Countries;
+use App\Models\Backend\Admin\AffinityCategories;
 
 class CountriesRepository implements CountriesRepositoryInterface
 {

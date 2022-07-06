@@ -96,17 +96,23 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::group(['namespace' => 'Users'], function()
         {
             Route::group(['prefix' => 'users'], function() {
-                Route::get('/listOfCustomers', 'UsersController@index')->name('users.index');
+                Route::get('/listOfCustomers', 'CustomerController@index')->name('users.index');
+                Route::post('/linked-accounts', 'CustomerController@linkedAccount')->name('users.index');
                 Route::get('/', 'UsersController@index')->name('users.index');
-
-
                 Route::get('/create', 'UsersController@create')->name('users.create');
                 Route::post('/create', 'UsersController@store')->name('users.store');
                 Route::get('/{user}/show', 'UsersController@show')->name('users.show');
                 Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
                 Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
                 Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
+
             });
+
+            Route::get('/adwordsLogin','GoogleController@getAuthUrl');
+            Route::get('/google/callback/{code?}', 'GoogleController@googleCallBack');
+
+
+
         });
 
         Route::group(['namespace' => 'CMS'], function() 
@@ -153,7 +159,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
             Route::get('/states', 'StatesController@index')->name('States.index');
             Route::get('/cities', 'CitiesController@index')->name('Cities.index');
+            Route::get('/cities/delete/{cities}', 'CitiesController@delete')->name('Cities.delete');
             Route::get('/cities/add', 'CitiesController@add')->name('Cities.add');
+            Route::get('/cities/edit/{cities}', 'CitiesController@edit')->name('Cities.edit');
+            Route::post('/cities/update/{cities}', 'CitiesController@update')->name('Cities.update');
+            Route::post('/cities/add-cities', 'CitiesController@addCities')->name('Cities.addCities');
+            Route::get('/cities/cities-filer', 'CitiesController@filter')->name('Cities.filter');
+
+
+   
 
 
             Route::get('/languages', 'LanguagesController@index')->name('Languages.index');

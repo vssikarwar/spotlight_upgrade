@@ -80,7 +80,7 @@
 
         <div class="paginator">
             <ul class="pagination">
-            {!! $affinityCategories->links() !!}
+            {!! $affinityCategories->links() !!} 
             <p>Page  of , showing  record(s) out of  total</p>
         </div>
         </div>
