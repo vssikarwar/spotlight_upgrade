@@ -14,7 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('App\Service\GoogleService');
+        $this->app->bind('App\Repositry\GoogleRepositryInterface','App\Repositry\GoogleRepositry');
     }
 
     /**
