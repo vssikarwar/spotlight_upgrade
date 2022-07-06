@@ -1,14 +1,15 @@
 <?php
+
 namespace App\Repository;
 
 interface CountriesRepositoryInterface
 {
-    public function saveData($request, $alias);
+    public function saveData($request);
 
-    public function updateStatus($affinityCategories, $status);
+    public function updateStatus($countries, $status);
 
-    public function update($request, $affinityCategories, $alias);
+    public function update($request, $countries);
 
-    public function get();
+    public function get(); 
 
 }

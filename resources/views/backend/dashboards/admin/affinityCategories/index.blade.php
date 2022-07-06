@@ -1,6 +1,6 @@
 @extends('backend.dashboards.admin.layouts.main')
 
-@section('main-container') 
+@section('main-container')
         <a href="/affinity-categories/add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>     
         <a href="/affinity-categories/import" class="btn btn-primary">Import</a>     
         <a href="/affinity-categories/export" class="btn btn-primary">Export</span></a> 
