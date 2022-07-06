@@ -9,6 +9,9 @@ class States extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name','active','state_code','country_id','country_name','alias'];
+
+
     protected $table = 'states';
 
     public const CREATED_AT = 'created';

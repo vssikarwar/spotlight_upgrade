@@ -178,7 +178,7 @@ return [
         App\Providers\AffinityCategoriesServiceProvider::class,
         App\Providers\CountriesServiceProvider::class,
         App\Providers\CMSServiceProvider::class,
-
+        App\Providers\CMSServiceProvider::class,
 
     ],
 

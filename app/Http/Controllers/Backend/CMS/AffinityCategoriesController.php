@@ -47,7 +47,7 @@ class AffinityCategoriesController extends Controller
 
 
         return redirect()->route('AffinityCategories.index')
-        ->withSuccess(__('Post created successfully.'));
+        ->withSuccess(__('Affinity Categories created successfully.'));
 
     }
 
@@ -100,7 +100,7 @@ class AffinityCategoriesController extends Controller
 
     }
 
-    public function edit(AffinityCategories $affinityCategories) 
+    public function edit(AffinityCategories $affinityCategories)  
     {
         return view('backend.dashboards.admin.affinityCategories.edit', [
             'affinityCategories'=>$affinityCategories

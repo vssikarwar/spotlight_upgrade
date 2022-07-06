@@ -2,31 +2,28 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
-use App\Services\CountriesService;
 
 class CountriesServiceProvider extends ServiceProvider
 {
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
     public function register()
     {
-        /**
-         * Register services. 
-         *
-         * @return void
-         */
         
-        $this->app->bind('App\Services\CountriesService');    
-        $this->app->bind('App\Repository\CountriesRepositoryInterface','App\Repository\CountriesRepository');
     }
 
     /**
-     * Bootstrap services.
+     * Bootstrap any application services.
      *
      * @return void
      */
     public function boot()
     {
-        //
+        Paginator::useBootstrap();
     }
-
 }

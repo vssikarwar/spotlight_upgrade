@@ -28,7 +28,8 @@ class RolesController extends Controller
      */
     public function index(Request $request)
     {   
-        $roles = Role::orderBy('id','DESC')->paginate(5);
+        $roles = Role::orderBy('id','DESC')->paginate(10);
+
         return view('backend.roles.index',compact('roles'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -60,7 +61,7 @@ class RolesController extends Controller
         $role = Role::create(['name' => $request->get('name')]);
         $role->syncPermissions($request->get('permission'));
     
-        return redirect()->route('backend.roles.index')
+        return redirect()->route('roles.index')
                         ->with('success','Role created successfully');
     }
 
@@ -111,7 +112,7 @@ class RolesController extends Controller
     
         $role->syncPermissions($request->get('permission'));
     
-        return redirect()->route('backend.roles.index')
+        return redirect()->route('roles.index')
                         ->with('success','Role updated successfully');
     }
 
@@ -125,7 +126,7 @@ class RolesController extends Controller
     {
         $role->delete();
 
-        return redirect()->route('backend.roles.index')
+        return redirect()->route('roles.index')
                         ->with('success','Role deleted successfully');
     }
 }

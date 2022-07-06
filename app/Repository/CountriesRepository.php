@@ -8,39 +8,32 @@ class CountriesRepository implements CountriesRepositoryInterface
 {
     public function get()
     {
-        $result = Countries::rightJoin('affinity_categories as p', 'affinity_categories.id', '=', 'p.parent_id')
-        ->select('p.id', 'affinity_categories.googleid', 'p.name', 'p.alias', 'p.status', 'affinity_categories.name as parent')
-        ->paginate(15);
-
-        return $result;
-
+        return Countries::paginate(10);
     }
 
 
-    public function saveData($request, $alias)
+    public function saveData($request)
     {
-        AffinityCategories::create(
+        Countries::create(
             array_merge
             (
-                $request->only('parent_id','googleid','name','status'),
-                ['alias' => $alias]
+                $request->only('name','iso_alpha_2','iso_alpha_3','iso_numeric','dailing_code','currency','active','shopping_ads')
             )
         );
     }
 
-    public function updateStatus($affinityCategories, $status)
+    public function updateStatus($countries, $status)
     {
-        AffinityCategories::where('id', $affinityCategories['id'])
+        Countries::where('id', $countries['id'])
         ->update([
-            'status' => $status
+            'active' => $status
          ]);
     }
 
-    public function update($request, $affinityCategories, $alias)
+    public function update($request, $countries)
     {
-        $result = $affinityCategories->update((array_merge(
-            $request->only('name','status'),
-            ['alias' => $alias]
+        $result = $countries->update((array_merge(
+            $request->only('name','iso_alpha_2','iso_alpha_3','iso_numeric','dailing_code','currency','active','shopping_ads')
         ))); 
     }
 

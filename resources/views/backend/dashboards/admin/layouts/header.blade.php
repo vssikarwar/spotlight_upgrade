@@ -459,8 +459,27 @@ function getClient(id)
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="/users" class="">All Users</a></li><li><a href="/users?user_group_id=1" class="">Admin</a></li><li><a href="/users?user_group_id=6" class="">Api User</a></li><li><a href="/users?user_group_id=2" class="">Brand User</a></li><li><a href="/users?user_group_id=5" class="">Dealer User</a></li><li><a href="/users?user_group_id=3" class="">Dealers</a></li><li><a href="/users?user_group_id=9" class="">Report User</a></li><li><a href="/users?user_group_id=8" class="">Reports</a></li><li><a href="/users?user_group_id=4" class="">Support</a></li>            </ul>
+                <li><a href="/users" class="">All Users</a></li>
+                <li><a href="/users?user_group_id=1" class="">Admin</a></li>
+                <li><a href="/users?user_group_id=6" class="">Api User</a></li>
+                <li><a href="/users?user_group_id=2" class="">Brand User</a></li>
+                <li><a href="/users?user_group_id=5" class="">Dealer User</a></li>
+                <li><a href="/users?user_group_id=3" class="">Dealers</a></li>
+                <li><a href="/users?user_group_id=9" class="">Report User</a></li>
+                <li><a href="/users?user_group_id=8" class="">Reports</a></li>
+                <li><a href="/users?user_group_id=4" class="">Support</a></li> 
+                
+            </ul>
         </li>
+
+        <li class="treeview">
+            <a href="{{url('/roles')}}">
+                <i class="fa fa-sitemap"></i>
+                <span>Manage Users Roles</span>
+            </a>
+        </li>
+
+
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-group"></i>
@@ -470,7 +489,10 @@ function getClient(id)
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="/permissionGroupMatrix" class="">Group Permissions</a></li><li><a href="/user_group_permissions/permissionSubGroupMatrix" class="">Subgroup Permissions</a></li>            </ul>
+                <li><a href="/permissionGroupMatrix" class="">Group Permissions</a></li>
+                <li><a href="/permissions" class="">Users Permissions</a></li>
+                <li><a href="/user_group_permissions/permissionSubGroupMatrix" class="">Subgroup Permissions</a></li>            
+            </ul>
         </li>
         <li class="treeview"> 
             <a href="{{url('/email-templates')}}">

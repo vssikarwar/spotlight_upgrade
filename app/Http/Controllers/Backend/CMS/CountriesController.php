@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\CMS;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\CountriesService;
+use App\Models\Countries;
 
 class CountriesController extends Controller
 {
@@ -33,10 +34,12 @@ class CountriesController extends Controller
     {
 
         $request->validate([
-            'Countries[name]' => 'required|regex:/^[a-z A-Z]+$/u|max:55',
-            'Countries[iso_alpha_2]' => 'required|regex:/^[a-z A-Z]+$/u|max:2',
-            'Countries[iso_alpha_3]' => 'required|regex:/^[a-z A-Z]+$/u|max:3',
-            'Countries[iso_numeric]'=> 'required',
+            'name'        => 'required|regex:/^[a-z A-Z]+$/u|max:100',
+            'iso_alpha_2' => 'required|regex:/^[a-zA-Z]+$/u|max:2',
+            'iso_alpha_3' => 'required|regex:/^[a-zA-Z]+$/u|max:3',
+            'iso_numeric' => 'max:5',
+            'dailing_code'=> 'max:6',
+            'currency'    => 'max:10',
         ]);
         
 
@@ -45,25 +48,49 @@ class CountriesController extends Controller
 
 
         return redirect()->route('Countries.index')
-        ->withSuccess(__('Post created successfully.'));
+        ->withSuccess(__('Country created successfully.'));
 
     }
 
-    public function edit()
+    public function edit(Countries $countries)
     {
-        return view('backend.dashboards.admin.countries.edit');
+        return view('backend.dashboards.admin.countries.edit', [
+            'countries'=>$countries
+        ]);
     }
 
-    public function editData()
+    public function editData(Request $request,Countries $countries)
+    {
+        $request->validate([
+            'name'        => 'required|regex:/^[a-z A-Z]+$/u|max:100',
+            'iso_alpha_2' => 'required|regex:/^[a-zA-Z]+$/u|max:2',
+            'iso_alpha_3' => 'required|regex:/^[a-zA-Z]+$/u|max:3',
+            'iso_numeric' => 'max:5',
+            'dailing_code'=> 'max:6',
+            'currency'    => 'max:10',
+        ]);
+
+        $this->CountriesService->update($request, $countries);
+        
+        return redirect()->route('Countries.index')
+            ->withSuccess(__('Post updated successfully.'));
+    }
+
+    public function statusUpdate(Countries $countries)
     {
 
+        $this->CountriesService->statusUpdate($countries);
+
+        return redirect()->route('Countries.index')
+             ->withSuccess(__('Post updated successfully.'));
+
     }
 
-    public function deleteData()
+    public function deleteData(Countries $countries)
     {
         $this->CountriesService->delete($countries);
 
-        return redirect()->route('countries.index')
+        return redirect()->route('Countries.index')
         ->withSuccess(__('Country deleted successfully.'));
     }
 }

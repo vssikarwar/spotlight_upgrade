@@ -150,14 +150,31 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
                 Route::get('/', 'CountriesController@index')->name('Countries.index');
                 Route::get('/add', 'CountriesController@add')->name('Countries.add');
+                Route::post('/add', 'CountriesController@addData')->name('Countries.addData');
                 Route::get('/edit/{countries}', 'CountriesController@edit')->name('Countries.edit');
-                Route::get('/delete/{countries}', 'CountriesController@delete')->name('Countries.delete');
+                Route::post('/update/{countries}', 'CountriesController@editData')->name('Countries.editData');
+                Route::get('/delete/{countries}', 'CountriesController@deleteData')->name('Countries.delete');
+                Route::get('/status-update/{countries}', 'CountriesController@statusUpdate')->name('Countries.statusUpdate');
+
 
             });
 
 
+            Route::group(['prefix' => 'states'], function()
+            {
 
-            Route::get('/states', 'StatesController@index')->name('States.index');
+                Route::get('/', 'StatesController@index')->name('States.index');
+                Route::get('/add', 'StatesController@add')->name('States.add');
+                Route::post('/add', 'StatesController@addData')->name('States.addData');
+                Route::get('/edit/{states}', 'StatesController@edit')->name('States.edit');
+                Route::post('/update/{states}', 'StatesController@editData')->name('States.editData');
+                Route::get('/delete/{states}', 'StatesController@deleteData')->name('States.delete');
+                Route::get('/status-update/{states}', 'StatesController@statusUpdate')->name('States.statusUpdate');
+
+
+            });
+
+
             Route::get('/cities', 'CitiesController@index')->name('Cities.index');
             Route::get('/cities/delete/{cities}', 'CitiesController@delete')->name('Cities.delete');
             Route::get('/cities/add', 'CitiesController@add')->name('Cities.add');
