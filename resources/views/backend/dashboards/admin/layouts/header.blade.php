@@ -374,22 +374,23 @@ function getClient(id)
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="/cms-categories" class="">Cms Categories</a></li>                
-                <li><a href="/cms-pages" class="">Cms Pages</a></li>                
+                <!-- <li><a href="/cms-categories" class="">Cms Categories</a></li>                 -->
+                <!-- <li><a href="/cms-pages" class="">Cms Pages</a></li>                 -->
                 <li><a href="/affinity-categories" class="">Affinity categories</a></li>
-                <li><a href="/product-categories" class="">Product categories</a></li>
+                <!-- <li><a href="/product-categories" class="">Product categories</a></li> -->
                 <li><a href="/countries" class="">Countries</a></li>
                 <li><a href="/states" class="">States</a></li>
                 <li><a href="/cities" class="">Cities</a></li>
-                <li><a href="/languages" class="">Languages</a></li>
-                <li><a href="/country-language-mapping" class="">Languages Country Mapping</a></li>
-                <li><a href="/time-zones" class="">Timezones</a></li>
-                <li><a href="/currencies" class="">Currencies</a></li>
-                <li><a href="/mobile-app-categories" class="">Mobile App Categories</a></li>
-                <li><a href="/topics" class="">Topics</a></li><li><a href="/landingpage-themes" class="">Themes</a></li>
-                <li><a href="/call-to-action-logs" class="">Call To Action Logs</a></li>
-                <li><a href="/lms-api-data" class="">LMS API Data</a></li>
-                <li><a href="/customer-pincodes" class="">Customer Pincodes</a></li>            </ul>
+                <!-- <li><a href="/languages" class="">Languages</a></li> -->
+                <!-- <li><a href="/country-language-mapping" class="">Languages Country Mapping</a></li> -->
+                <!-- <li><a href="/time-zones" class="">Timezones</a></li> -->
+                <!-- <li><a href="/currencies" class="">Currencies</a></li> -->
+                <!-- <li><a href="/mobile-app-categories" class="">Mobile App Categories</a></li> -->
+                <!-- <li><a href="/topics" class="">Topics</a></li><li><a href="/landingpage-themes" class="">Themes</a></li> -->
+                <!-- <li><a href="/call-to-action-logs" class="">Call To Action Logs</a></li> -->
+                <!-- <li><a href="/lms-api-data" class="">LMS API Data</a></li> -->
+                <!-- <li><a href="/customer-pincodes" class="">Customer Pincodes</a></li>-->
+                </ul> 
         </li>
         <li class="treeview">
             <a href="{{url('/lead-attributes')}}">
@@ -458,8 +459,27 @@ function getClient(id)
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="/users" class="">All Users</a></li><li><a href="/users?user_group_id=1" class="">Admin</a></li><li><a href="/users?user_group_id=6" class="">Api User</a></li><li><a href="/users?user_group_id=2" class="">Brand User</a></li><li><a href="/users?user_group_id=5" class="">Dealer User</a></li><li><a href="/users?user_group_id=3" class="">Dealers</a></li><li><a href="/users?user_group_id=9" class="">Report User</a></li><li><a href="/users?user_group_id=8" class="">Reports</a></li><li><a href="/users?user_group_id=4" class="">Support</a></li>            </ul>
+                <li><a href="/users" class="">All Users</a></li>
+                <li><a href="/users?user_group_id=1" class="">Admin</a></li>
+                <li><a href="/users?user_group_id=6" class="">Api User</a></li>
+                <li><a href="/users?user_group_id=2" class="">Brand User</a></li>
+                <li><a href="/users?user_group_id=5" class="">Dealer User</a></li>
+                <li><a href="/users?user_group_id=3" class="">Dealers</a></li>
+                <li><a href="/users?user_group_id=9" class="">Report User</a></li>
+                <li><a href="/users?user_group_id=8" class="">Reports</a></li>
+                <li><a href="/users?user_group_id=4" class="">Support</a></li> 
+                
+            </ul>
         </li>
+
+        <li class="treeview">
+            <a href="{{url('/roles')}}">
+                <i class="fa fa-sitemap"></i>
+                <span>Manage Users Roles</span>
+            </a>
+        </li>
+
+
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-group"></i>
@@ -469,7 +489,10 @@ function getClient(id)
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="/permissionGroupMatrix" class="">Group Permissions</a></li><li><a href="/user_group_permissions/permissionSubGroupMatrix" class="">Subgroup Permissions</a></li>            </ul>
+                <li><a href="/permissionGroupMatrix" class="">Group Permissions</a></li>
+                <li><a href="/permissions" class="">Users Permissions</a></li>
+                <li><a href="/user_group_permissions/permissionSubGroupMatrix" class="">Subgroup Permissions</a></li>            
+            </ul>
         </li>
         <li class="treeview"> 
             <a href="{{url('/email-templates')}}">

@@ -16,7 +16,7 @@ class PermissionsController extends Controller
      */
     public function index()
     {   
-        $permissions = Permission::all();
+        $permissions = Permission::paginate(10);
 
         return view('backend.permissions.index', [
             'permissions' => $permissions
@@ -47,7 +47,7 @@ class PermissionsController extends Controller
 
         Permission::create($request->only('name'));
 
-        return redirect()->route('backend.permissions.index')
+        return redirect()->route('permissions.index')
             ->withSuccess(__('Permission created successfully.'));
     }
 
@@ -77,9 +77,9 @@ class PermissionsController extends Controller
             'name' => 'required|unique:permissions,name,'.$permission->id
         ]);
 
-        $permission->update($request->only('name'));
+        $permission->update($request->only('name')); 
 
-        return redirect()->route('backend.permissions.index')
+        return redirect()->route('permissions.index')
             ->withSuccess(__('Permission updated successfully.'));
     }
 
@@ -93,7 +93,7 @@ class PermissionsController extends Controller
     {
         $permission->delete();
 
-        return redirect()->route('backend.permissions.index')
+        return redirect()->route('permissions.index')
             ->withSuccess(__('Permission deleted successfully.'));
     }
 }

@@ -63,6 +63,7 @@
                                 <label class="control-label required">Name</label>
                                 <div class="input text"><input type="text" name="name" class="form-control" maxlength="255" id="affinitycategories-name" value="{{$affinityCategories->name}}"/>
                             
+<<<<<<< HEAD
                                     @if ($errors->has('googleid'))
 
                                         <small class="text text-danger" style="display: inline-block;">
@@ -73,14 +74,23 @@
 
                                     @endif
 
+=======
+                                @if ($errors->has('name'))
+
+                                <small class="text text-danger" style="display: inline-block;">
+
+                                    <span class="text-danger text-left">{{ $errors->first('name') }}</span>
+
+                                </small>
+
+                                @endif   
+>>>>>>> 17edd6645dc588f7a0968842e0181d1fed72b499
                             </div>                            </div>
                             <div class="form-group ">
                                 <label class="control-label">Googleid</label>
-                                 <div class="input number"><input type="number" name="googleid" class="form-control" id="affinitycategories-googleid" disabled="disabled" value="{{$affinityCategories->googleid}}"/></div>                            </div>
-                            <div class="form-group ">
-                                <label class="control-label">Slug</label>
-                                 <div class="input text"><input type="text" name="alias" class="form-control" maxlength="255" id="affinitycategories-alias" disabled="disabled" value="{{$affinityCategories->alias}}"/></div>                            </div>
+                                 <div class="input number"><input type="number" name="googleid" class="form-control" id="affinitycategories-googleid" disabled="disabled" value="{{$affinityCategories->googleid}}"/>
 
+                                </div>                            </div>
                             
                             <div class="form-group ">                                
                                 <div class="input checkbox"><input type="hidden" name="status" value="0"/><label for="affinitycategories-status"><input type="checkbox" name="status" value="1" id="affinitycategories-status" checked="checked">Status</label></div>                            </div>
@@ -93,29 +103,5 @@
     </div>
 </section>
 
-                </div>
-            <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-        <b>Version</b> 2.3.11
-    </div>
-    <strong>Copyright &copy; 2022 <a href="http://www.singleinterface.com">Singleinterface</a>.</strong> All rights
-    reserved.
-</footer>
-<script>
-           // saveBrowsingLogs();
-            function saveBrowsingLogs(){
-                var url = '/affinity-categories/edit/2';
-                var queryString = "url="+url;
-                  jQuery.ajax({
-                                    type: "POST",
-                                    url: 'https://testing.myspotlight.co/ajax/save-browsing-logs',
-                                    data: queryString,     
-                                          
-                                    success: function(data){                
-            }
-        });
-
-    }
-</script>
-
+            
 @endsection

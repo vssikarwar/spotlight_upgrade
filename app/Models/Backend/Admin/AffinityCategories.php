@@ -10,7 +10,7 @@ class AffinityCategories extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['parent_id','googleid','name','alias'];
+    protected $fillable = ['parent_id','googleid','name','alias','active','shopping_ads'];
 
     protected $table = 'affinity_categories';
 
