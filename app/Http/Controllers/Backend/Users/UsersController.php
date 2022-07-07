@@ -20,7 +20,7 @@ class UsersController extends Controller
     {
         $users = User::latest()->paginate(10);
 
-        return view('backend.users.index', compact('users'));
+        return view('backend.usersAdmin.index', compact('users'));
     }
 
     
@@ -32,7 +32,7 @@ class UsersController extends Controller
      */
     public function create() 
     {
-        return view('backend.users.create');
+        return view('backend.usersAdmin.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class UsersController extends Controller
             'password' => 'test' 
         ]));
 
-        return redirect()->route('users.index')
+        return redirect()->route('usersAdmin.index')
             ->withSuccess(__('User created successfully.'));
     }
 
@@ -64,7 +64,7 @@ class UsersController extends Controller
      */
     public function show(User $user) 
     {
-        return view('backend.users.show', [
+        return view('backend.usersAdmin.show', [
             'user' => $user
         ]);
     }
@@ -78,7 +78,7 @@ class UsersController extends Controller
      */
     public function edit(User $user) 
     {
-        return view('backend.users.edit', [
+        return view('backend.usersAdmin.edit', [
             'user' => $user,
             'userRole' => $user->roles->pluck('name')->toArray(),
             'roles' => Role::latest()->get()
@@ -99,7 +99,7 @@ class UsersController extends Controller
 
         $user->syncRoles($request->get('role'));
 
-        return redirect()->route('users.index')
+        return redirect()->route('usersAdmin.index')
             ->withSuccess(__('User updated successfully.'));
     }
 
@@ -114,7 +114,7 @@ class UsersController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('users.index')
+        return redirect()->route('usersAdmin.index')
             ->withSuccess(__('User deleted successfully.'));
     }
 }
