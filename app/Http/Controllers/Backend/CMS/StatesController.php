@@ -32,9 +32,9 @@ class StatesController extends Controller
     public function addData(Request $request)
     {
         $request->validate([
-            'name' => 'required|regex:/^[a-z A-Z]+$/u|max:55',
-            'state_code' => 'required|max:2',
-            'country_id'=> 'required',
+            'name' => 'required|regex:/^[a-z A-Z]+$/u|max:55|unique:states,name',
+            'state_code' => 'required|max:2|unique:states,state_code',
+            'country_id'=> 'required|unique:states,state_code',
             'alias'=>'required',
         ]);
 
@@ -64,7 +64,7 @@ class StatesController extends Controller
     { 
         
         $request->validate([
-            'name' => 'required|regex:/^[a-z A-Z]+$/u|max:255',
+            'name' => 'required|regex:/^[a-z A-Z]+$/u|max:255|unique:states,name,'.$states->id,
         ]);
         
 
