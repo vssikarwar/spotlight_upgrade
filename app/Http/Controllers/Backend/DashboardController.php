@@ -13,13 +13,14 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $id = auth()->user()->id;
+        $role = auth()->user()->roles->toArray()[0]['name'];
 
-        if($id == 1)
+        if($role == 'admin')
         {      
             return redirect()->route('dashboard.admin');
         }
-        else
+        
+        elseif($role == 'support')
         {
             return view('backend.dashboards.support.index'); 
         }  

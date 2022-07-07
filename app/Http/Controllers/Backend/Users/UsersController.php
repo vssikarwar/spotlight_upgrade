@@ -20,6 +20,20 @@ class UsersController extends Controller
     {
         $users = User::latest()->paginate(10);
 
+
+        $role = auth()->user()->roles->toArray()[0]['name'];
+
+        if($role == 'admin')
+        {      
+            return view('backend.usersAdmin.index', compact('users'));
+        }
+        
+        elseif($role == 'support')
+        {
+            return view('backend.users.index', compact('users'));
+        }  
+
+
         return view('backend.usersAdmin.index', compact('users'));
     }
 

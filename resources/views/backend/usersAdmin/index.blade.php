@@ -48,7 +48,7 @@
                         <td>{{ $user->username }}</td>
                         <td>
                             @foreach($user->roles as $role)
-                                <span class="badge bg-info">{{ $role->name }}</span>
+                                <span class="btn btn-info btn-xs">{{ $role->name }}</span>
                             @endforeach
                         </td>
                         
