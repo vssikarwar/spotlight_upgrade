@@ -63,18 +63,6 @@
                                 <label class="control-label required">Name</label>
                                 <div class="input text"><input type="text" name="name" class="form-control" maxlength="255" id="affinitycategories-name" value="{{$affinityCategories->name}}"/>
                             
-<<<<<<< HEAD
-                                    @if ($errors->has('googleid'))
-
-                                        <small class="text text-danger" style="display: inline-block;">
-
-                                            <span class="text-danger text-left">{{ $errors->first('name') }}</span>
-
-                                        </small>
-
-                                    @endif
-
-=======
                                 @if ($errors->has('name'))
 
                                 <small class="text text-danger" style="display: inline-block;">
@@ -84,7 +72,6 @@
                                 </small>
 
                                 @endif   
->>>>>>> 17edd6645dc588f7a0968842e0181d1fed72b499
                             </div>                            </div>
                             <div class="form-group ">
                                 <label class="control-label">Googleid</label>

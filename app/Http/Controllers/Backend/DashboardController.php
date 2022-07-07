@@ -17,7 +17,7 @@ class DashboardController extends Controller
 
         if($id == 1)
         {      
-            return redirect()->route('dashboard.publishers');
+            return redirect()->route('dashboard.admin');
         }
         else
         {
