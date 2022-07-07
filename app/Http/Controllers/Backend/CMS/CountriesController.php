@@ -34,9 +34,9 @@ class CountriesController extends Controller
     {
 
         $request->validate([
-            'name'        => 'required|regex:/^[a-z A-Z]+$/u|max:100',
-            'iso_alpha_2' => 'required|regex:/^[a-zA-Z]+$/u|max:2',
-            'iso_alpha_3' => 'required|regex:/^[a-zA-Z]+$/u|max:3',
+            'name'        => 'required|regex:/^[a-z A-Z]+$/u|max:100|unique:countries,name',
+            'iso_alpha_2' => 'required|regex:/^[a-zA-Z]+$/u|max:2|unique:countries,iso_alpha_2',
+            'iso_alpha_3' => 'required|regex:/^[a-zA-Z]+$/u|max:3|unique:countries,iso_alpha_3',
             'iso_numeric' => 'max:5',
             'dailing_code'=> 'max:6',
             'currency'    => 'max:10',
@@ -62,9 +62,9 @@ class CountriesController extends Controller
     public function editData(Request $request,Countries $countries)
     {
         $request->validate([
-            'name'        => 'required|regex:/^[a-z A-Z]+$/u|max:100',
-            'iso_alpha_2' => 'required|regex:/^[a-zA-Z]+$/u|max:2',
-            'iso_alpha_3' => 'required|regex:/^[a-zA-Z]+$/u|max:3',
+            'name'        => 'required|regex:/^[a-z A-Z]+$/u|max:100|unique:countries,name,'.$countries->id,
+            'iso_alpha_2' => 'required|regex:/^[a-zA-Z]+$/u|max:2|unique:countries,iso_alpha_2,'.$countries->id,
+            'iso_alpha_3' => 'required|regex:/^[a-zA-Z]+$/u|max:3|unique:countries,iso_alpha_3,'.$countries->id,
             'iso_numeric' => 'max:5',
             'dailing_code'=> 'max:6',
             'currency'    => 'max:10',

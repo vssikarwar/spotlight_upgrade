@@ -30,15 +30,33 @@
                  	
                  	<div class="input text">
                         <input type="text" name="name" class="form-control" maxlength="100" id="countries-name" value="{{$countries->name}}"/>
-                    </div>                
+                    </div>  
+                        @if ($errors->has('name'))
+
+                            <small class="text text-danger" style="display: inline-block;">
+
+                                <span class="text-danger text-left">{{ $errors->first('name') }}</span>
+
+                            </small>
+
+                        @endif                 
                 </div>
-                
+                 
                 <div class="form-group">
 					<label class="control-label required">Iso Alpha 2</label>
                  	
                  	<div class="input text">
                         <input type="text" name="iso_alpha_2" class="form-control" maxlength="2" id="countries-iso-alpha-2" value="{{$countries->iso_alpha_2}}"/>
-                    </div>                
+                    </div> 
+                        @if ($errors->has('iso_alpha_2'))
+
+                            <small class="text text-danger" style="display: inline-block;">
+
+                                <span class="text-danger text-left">{{ $errors->first('iso_alpha_2') }}</span>
+
+                            </small>
+
+                        @endif                
                 </div>
                 
                 <div class="form-group">
@@ -46,7 +64,16 @@
                  	
                  	<div class="input text">
                         <input type="text" name="iso_alpha_3" class="form-control" maxlength="3" id="countries-iso-alpha-3" value="{{$countries->iso_alpha_3}}"/>
-                    </div>                
+                    </div> 
+                        @if ($errors->has('iso_alpha_3'))
+
+                            <small class="text text-danger" style="display: inline-block;">
+
+                                <span class="text-danger text-left">{{ $errors->first('iso_alpha_3') }}</span>
+
+                            </small>
+
+                        @endif                
                 </div>
                 
                 <div class="form-group">
@@ -54,7 +81,16 @@
                  	
                  	<div class="input text">
                         <input type="text" name="iso_numeric" class="form-control" maxlength="5" id="countries-iso-numeric" value="{{$countries->iso_numeric}}"/>
-                    </div>                
+                    </div> 
+                        @if ($errors->has('iso_numeric'))
+
+                            <small class="text text-danger" style="display: inline-block;">
+
+                                <span class="text-danger text-left">{{ $errors->first('iso_numeric') }}</span>
+
+                            </small>
+
+                        @endif                
                 </div>
                 
                 <div class="form-group">
@@ -62,7 +98,16 @@
                  	
                  	<div class="input text">
                         <input type="text" name="dailing_code" class="form-control" maxlength="6" id="countries-dailing-code" value="{{$countries->dailing_code}}"/>
-                    </div>                
+                    </div>
+                        @if ($errors->has('dailing_code'))
+
+                            <small class="text text-danger" style="display: inline-block;">
+
+                                <span class="text-danger text-left">{{ $errors->first('dailing_code') }}</span>
+
+                            </small>
+
+                        @endif                   
                 </div>
                 
                 <div class="form-group">
