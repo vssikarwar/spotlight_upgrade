@@ -392,7 +392,7 @@ function getClient(id)
                 <li><a href="/cities" class="">Cities</a></li>
                 <!-- <li><a href="/languages" class="">Languages</a></li> -->
                 <!-- <li><a href="/country-language-mapping" class="">Languages Country Mapping</a></li> -->
-                <!-- <li><a href="/time-zones" class="">Timezones</a></li> -->
+                <li><a href="/time-zones" class="">Timezones</a></li>
                 <!-- <li><a href="/currencies" class="">Currencies</a></li> -->
                 <!-- <li><a href="/mobile-app-categories" class="">Mobile App Categories</a></li> -->
                 <!-- <li><a href="/topics" class="">Topics</a></li><li><a href="/landingpage-themes" class="">Themes</a></li> -->

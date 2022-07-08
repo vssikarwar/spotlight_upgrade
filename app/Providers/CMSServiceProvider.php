@@ -25,6 +25,9 @@ class CMSServiceProvider extends ServiceProvider
         $this->app->bind('App\Services\StatesService');    
         $this->app->bind('App\Repository\StatesRepositoryInterface','App\Repository\StatesRepository');
 
+        $this->app->bind('App\Services\TimeZonesService');    
+        $this->app->bind('App\Repository\TimeZonesRepositoryInterface','App\Repository\TimeZonesRepository');
+
     }
 
     /**

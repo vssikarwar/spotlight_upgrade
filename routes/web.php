@@ -173,14 +173,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
             });
 
-
-            Route::get('/cities', 'CitiesController@index')->name('Cities.index');
-            Route::get('/cities/delete/{cities}', 'CitiesController@delete')->name('Cities.delete');
-            Route::get('/cities/add', 'CitiesController@add')->name('Cities.add');
-            Route::get('/cities/edit/{cities}', 'CitiesController@edit')->name('Cities.edit');
-            Route::post('/cities/update/{cities}', 'CitiesController@update')->name('Cities.update');
-            Route::post('/cities/add-cities', 'CitiesController@addCities')->name('Cities.addCities');
-            Route::get('/cities/cities-filer', 'CitiesController@filter')->name('Cities.filter');
+            Route::group(['prefix' => 'cities'], function()
+            {
+                Route::get('/', 'CitiesController@index')->name('Cities.index');
+                Route::get('/delete/{cities}', 'CitiesController@delete')->name('Cities.delete');
+                Route::get('/add', 'CitiesController@add')->name('Cities.add');
+                Route::get('/edit/{cities}', 'CitiesController@edit')->name('Cities.edit');
+                Route::post('/update/{cities}', 'CitiesController@update')->name('Cities.update');
+                Route::post('/add-cities', 'CitiesController@addCities')->name('Cities.addCities');
+                Route::get('/cities-filer', 'CitiesController@filter')->name('Cities.filter');
+            });     
 
 
    
@@ -188,7 +190,20 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
             Route::get('/languages', 'LanguagesController@index')->name('Languages.index');
             Route::get('/country-language-mapping', 'CountryLanguageMappingController@index')->name('CountryLanguageMapping.index');
-            Route::get('/time-zones', 'TimeZonesController@index')->name('TimeZones.index');
+
+            Route::group(['prefix' => 'time-zones'], function()
+            {
+                Route::get('/', 'TimeZonesController@index')->name('TimeZones.index');
+                Route::get('/add', 'TimeZonesController@add')->name('TimeZones.add');
+                Route::post('/add', 'TimeZonesController@addData')->name('TimeZones.addData');
+                Route::get('/edit/{timeZones}', 'TimeZonesController@edit')->name('TimeZones.edit');
+                Route::post('/update/{timeZones}', 'TimeZonesController@editData')->name('TimeZones.editData');
+                Route::get('/delete/{timeZones}', 'TimeZonesController@deleteData')->name('TimeZones.delete');
+                Route::get('/status-update/{timeZones}', 'TimeZonesController@statusUpdate')->name('TimeZones.statusUpdate');
+
+            });
+
+
             Route::get('/currencies', 'CurrenciesController@index')->name('Currencies.index');
             Route::get('/topics', 'TopicsController@index')->name('Topics.index');
             Route::get('/landingpage-themes', 'ThemesController@index')->name('Themes.index');
